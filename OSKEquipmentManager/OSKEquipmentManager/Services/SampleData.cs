@@ -49,13 +49,9 @@ namespace OSKEquipmentManager.Services
                     LoanDate=new DateTime(2017,10,7),
                     BorrowedMember="Reo",
                     Remarks="不眠不休で頑張ります！"
-<<<<<<< HEAD
                 },
-=======
-                }
-
->>>>>>> 91b731817113be0d53c32ce23e007745ab29a7e0
-            };
+      
+            };          
             return data;
         }
 
