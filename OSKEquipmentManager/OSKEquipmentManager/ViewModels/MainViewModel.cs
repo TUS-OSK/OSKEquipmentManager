@@ -8,6 +8,7 @@ namespace OSKEquipmentManager.ViewModels
     {
         public MainViewModel()
         {
+            
         }
     }
 }

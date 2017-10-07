@@ -18,11 +18,15 @@
         <TextBlock
             x:Name="TitlePage"
             x:Uid="Main_Title"
-            Style="{StaticResource PageTitleStyle}" />
+            Style="{StaticResource PageTitleStyle}"/>
 
         <Grid 
             Grid.Row="1" 
-            Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
+            Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
             <!--The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
                 Place your content here.-->
         </Grid>
