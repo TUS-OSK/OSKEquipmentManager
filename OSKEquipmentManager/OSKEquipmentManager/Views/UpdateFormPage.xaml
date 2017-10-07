@@ -23,6 +23,16 @@
         <Grid 
             Grid.Row="1" 
             Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
+            <TextBlock HorizontalAlignment="Left" Margin="25,25,0,0" TextWrapping="Wrap" Text="EquipmentName"  VerticalAlignment="Top"/>
+            <TextBox HorizontalAlignment="Left" Margin="25,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300"/>
+            <TextBlock HorizontalAlignment="Left" Margin="25,125,0,0" TextWrapping="Wrap" Text="LoanDate" VerticalAlignment="Top"/>
+            <TextBox HorizontalAlignment="Left" Margin="25,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300"/>
+            <TextBlock HorizontalAlignment="Left" Margin="25,225,0,0" TextWrapping="Wrap" Text="BorrowedMember" VerticalAlignment="Top"/>
+            <TextBox HorizontalAlignment="Left" Margin="25,275,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300"/>
+            <TextBlock HorizontalAlignment="Left" Margin="25,325,0,0" TextWrapping="Wrap" Text="Remarks" VerticalAlignment="Top"/>
+            <TextBox HorizontalAlignment="Left" Margin="25,375,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300"/>
+            <Button Content="Cancel" HorizontalAlignment="Left" Margin="150,430,0,0" VerticalAlignment="Top"/>
+            <Button Content="UpDate" HorizontalAlignment="Left" Margin="250,430,0,0" VerticalAlignment="Top"/>
             <!--The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
                 Place your content here.-->
         </Grid>

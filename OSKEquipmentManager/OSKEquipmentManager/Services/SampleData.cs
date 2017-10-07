@@ -42,7 +42,7 @@ namespace OSKEquipmentManager.Services
                     LoanDate=new DateTime(2017,10,7),
                     BorrowedMember="Reo",
                     Remarks="不眠不休で頑張ります！"
-                }
+                },
             };
             return data;
         }
