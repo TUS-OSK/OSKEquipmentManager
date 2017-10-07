@@ -36,6 +36,13 @@ namespace OSKEquipmentManager.Services
                     BorrowedMember="Nakamura",
                     Remarks="紛失しないよう頑張ります"
                 },
+                 new EquipmentInformation
+                {
+                    EquipmentName="タブレット",
+                    LoanDate=new DateTime(2017,10,5),
+                    BorrowedMember="miura",
+                    Remarks="鬼いちゃんのH"
+                },
             };
             return data;
         }
