@@ -38,11 +38,23 @@ namespace OSKEquipmentManager.Services
                 },
                 new EquipmentInformation
                 {
+                    EquipmentName="Windows Phone(MADOSMA Q501)",
+                    LoanDate=new DateTime(2016,8,24,23,59,36),
+                    BorrowedMember="Haginoya",
+                    Remarks="去年から借りっぱなしなんだけど！！！←私物だし！"
+                },
+                new EquipmentInformation
+                {
                     EquipmentName="妹のセイイキ",
                     LoanDate=new DateTime(2017,10,7),
                     BorrowedMember="Reo",
                     Remarks="不眠不休で頑張ります！"
+<<<<<<< HEAD
                 },
+=======
+                }
+
+>>>>>>> 91b731817113be0d53c32ce23e007745ab29a7e0
             };
             return data;
         }
