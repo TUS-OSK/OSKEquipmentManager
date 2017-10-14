@@ -24,6 +24,7 @@
 
         <Grid
             Grid.Row="1"
+            VerticalAlignment="Top" Height="400" ScrollViewer.VerticalScrollMode="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto"
             Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}" >
             <tg:RadDataGrid UserFilterMode="Disabled" ColumnDataOperationsMode="Inline" x:Name="grid" ItemsSource="{x:Bind ViewModel.Source}" Margin="-10,0,10,0"  Background="Gray"/>
         </Grid>
