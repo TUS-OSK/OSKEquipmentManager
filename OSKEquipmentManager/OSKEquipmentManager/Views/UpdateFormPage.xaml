@@ -31,8 +31,8 @@
             <TextBox HorizontalAlignment="Left" Margin="25,275,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300"/>
             <TextBlock HorizontalAlignment="Left" Margin="25,325,0,0" TextWrapping="Wrap" Text="Remarks" VerticalAlignment="Top"/>
             <TextBox HorizontalAlignment="Left" Margin="25,375,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300"/>
-            <Button Content="Cancel" HorizontalAlignment="Left" Margin="150,430,0,0" VerticalAlignment="Top"/>
-            <Button Content="UpDate" HorizontalAlignment="Left" Margin="250,430,0,0" VerticalAlignment="Top"/>
+            <Button Content="Cancel" HorizontalAlignment="Left" Margin="150,430,0,0" VerticalAlignment="Top" Background="{ThemeResource AppBarBackgroundThemeBrush}" Command="{Binding CancelCommand}"/>
+            <Button Content="UpDate" HorizontalAlignment="Left" Margin="250,430,0,0" VerticalAlignment="Top" Background="{ThemeResource AppBarBackgroundThemeBrush}" Command="{Binding UpdateCommand}"/>
             <!--The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
                 Place your content here.-->
         </Grid>

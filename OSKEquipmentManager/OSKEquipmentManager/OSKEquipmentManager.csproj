@@ -120,6 +120,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activation\ActivationHandler.cs" />
+    <Compile Include="Commands\UpdateFormPageCancelCommand.cs" />
+    <Compile Include="Commands\UpdateFormPageUpdateCommand.cs" />
     <Compile Include="Helpers\Json.cs" />
     <Compile Include="Helpers\SettingsStorageExtensions.cs" />
     <Compile Include="Models\EquipmentInformation.cs" />
