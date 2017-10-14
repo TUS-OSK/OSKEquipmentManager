@@ -14,7 +14,7 @@ namespace OSKEquipmentManager.ViewModels
         {
             get
             {
-                // TODO WTS: Replace this with your actual data
+                // TODO WTS: ここは実際のデータで置き換えること
                 return SampleData.GetGridSampleData();
             }
         }

@@ -7,8 +7,9 @@ using Windows.Storage.Streams;
 
 namespace OSKEquipmentManager.Helpers
 {
-    // Use these extension methods to store and retrieve local and roaming app data
-    // For more info regarding storing and retrieving app data see documentation at
+    //ていうか、ここはあまりいじる必要なし？
+    //これらの拡張メソッドを使って、ローカルデータやローミングデータを格納・取得する
+    // アプリデータの保存と取得に関しては、以下のURLを参考にすること
     // https://docs.microsoft.com/windows/uwp/app-settings/store-and-retrieve-app-data
     public static class SettingsStorageExtensions
     {

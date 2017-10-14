@@ -55,7 +55,7 @@ namespace OSKEquipmentManager.Services
             return data;
         }
 
-        // TODO WTS: Remove this once your grid page is displaying real data
+        //TODO WTS: grid pageが実際のデータを表示するようになったら、この部分を削除せよ
         public static ObservableCollection<EquipmentInformation> GetGridSampleData()
         {
             return new ObservableCollection<EquipmentInformation>(AllOrders());
