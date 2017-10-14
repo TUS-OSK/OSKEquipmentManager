@@ -19,35 +19,35 @@ namespace OSKEquipmentManager.Services
                 {
                     EquipmentName="Windows Phone(Katana2)",
                     LoanDate=new DateTime(2017,02,24),
-                    BorrowedMember="返却済み",
+                    BorrowingMember="返却済み",
                     Remarks="紛失中"
                 },
                 new EquipmentInformation
                 {
                     EquipmentName="Let's Note",
                     LoanDate=new DateTime(2017,8,31),
-                    BorrowedMember="Nakamura",
+                    BorrowingMember="Nakamura",
                     Remarks="本人に借りた記憶はない"
                 },
                 new EquipmentInformation
                 {
                     EquipmentName="Windowsタブレット",
                     LoanDate=new DateTime(2017,10,5),
-                    BorrowedMember="Nakamura",
+                    BorrowingMember="Nakamura",
                     Remarks="紛失しないよう頑張ります"
                 },
                 new EquipmentInformation
                 {
                     EquipmentName="Windows Phone(MADOSMA Q501)",
                     LoanDate=new DateTime(2016,8,24,23,59,36),
-                    BorrowedMember="Haginoya",
+                    BorrowingMember="Haginoya",
                     Remarks="去年から借りっぱなしなんだけど！！！←私物だし！"
                 },
                 new EquipmentInformation
                 {
                     EquipmentName="妹のセイイキ",
                     LoanDate=new DateTime(2017,10,7),
-                    BorrowedMember="Reo",
+                    BorrowingMember="Reo",
                     Remarks="不眠不休で頑張ります！"
                 },
       

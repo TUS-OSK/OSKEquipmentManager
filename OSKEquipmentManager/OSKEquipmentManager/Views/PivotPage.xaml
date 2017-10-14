@@ -10,7 +10,7 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Pivot x:Uid="PivotPage">
+        <Pivot x:Uid="PivotPage" >
             <PivotItem x:Uid="PivotItem_Main">
                 <Frame>
                     <views:MainPage/>
