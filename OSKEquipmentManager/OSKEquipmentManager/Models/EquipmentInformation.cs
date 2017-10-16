@@ -26,6 +26,9 @@ namespace OSKEquipmentManager.Models
     // It is the model class we use to display data on pages like Grid, Chart, and Master Detail.
     public class EquipmentInformation
     {
+        //備品を識別するための主キー
+        public int Id { get; set; }
+
         public string EquipmentName { get; set; } = "";
 
         public EquipmentStatus Status { get; set; }
