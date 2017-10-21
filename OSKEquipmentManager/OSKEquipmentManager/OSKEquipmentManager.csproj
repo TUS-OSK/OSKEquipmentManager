@@ -122,8 +122,14 @@
     <Compile Include="Activation\ActivationHandler.cs" />
     <Compile Include="Commands\UpdateFormPageCancelCommand.cs" />
     <Compile Include="Commands\UpdateFormPageUpdateCommand.cs" />
+    <Compile Include="Common\DelegateCommand.cs" />
     <Compile Include="Helpers\Json.cs" />
     <Compile Include="Helpers\SettingsStorageExtensions.cs" />
+    <Compile Include="Migrations\20171021043955_EqMigration.cs" />
+    <Compile Include="Migrations\20171021043955_EqMigration.designer.cs">
+      <DependentUpon>20171021043955_EqMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\EquipmentInformationContextModelSnapshot.cs" />
     <Compile Include="Models\EquipmentInformation.cs" />
     <Compile Include="Models\EquipmentManager.cs" />
     <Compile Include="Services\ActivationService.cs" />

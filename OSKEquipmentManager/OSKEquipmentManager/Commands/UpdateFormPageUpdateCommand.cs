@@ -23,6 +23,7 @@ namespace OSKEquipmentManager.Commands
             return true;
         }
 
+
         public event EventHandler CanExecuteChanged;
 
         public async void Execute(object parameter)

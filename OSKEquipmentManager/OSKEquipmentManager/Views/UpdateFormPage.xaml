@@ -23,16 +23,17 @@
         <Grid 
             Grid.Row="1" 
             Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
-            <TextBlock HorizontalAlignment="Left" Margin="25,25,0,0" TextWrapping="Wrap" Text="EquipmentName"  VerticalAlignment="Top"/>
-            <TextBox HorizontalAlignment="Left" Margin="25,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300"/>
-            <TextBlock HorizontalAlignment="Left" Margin="25,125,0,0" TextWrapping="Wrap" Text="LoanDate" VerticalAlignment="Top"/>
-            <TextBox HorizontalAlignment="Left" Margin="25,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300"/>
-            <TextBlock HorizontalAlignment="Left" Margin="25,225,0,0" TextWrapping="Wrap" Text="BorrowedMember" VerticalAlignment="Top"/>
-            <TextBox HorizontalAlignment="Left" Margin="25,275,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300"/>
-            <TextBlock HorizontalAlignment="Left" Margin="25,325,0,0" TextWrapping="Wrap" Text="Remarks" VerticalAlignment="Top"/>
-            <TextBox HorizontalAlignment="Left" Margin="25,375,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300"/>
-            <Button Content="Cancel" HorizontalAlignment="Left" Margin="150,430,0,0" VerticalAlignment="Top" Background="{ThemeResource AppBarBackgroundThemeBrush}" Command="{Binding CancelCommand}"/>
-            <Button Content="UpDate" HorizontalAlignment="Left" Margin="250,430,0,0" VerticalAlignment="Top" Background="{ThemeResource AppBarBackgroundThemeBrush}" Command="{Binding UpdateCommand}"/>
+            <TextBlock Text="EquipmentName" HorizontalAlignment="Left" Margin="25,25,0,0" TextWrapping="Wrap"   VerticalAlignment="Top"/>
+            <TextBox Text="{Binding NewEquipName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="25,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300"/>
+            
+            <TextBlock Text="BorrowedMember" HorizontalAlignment="Left" Margin="25,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBox Text="{Binding PersonName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="25,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300"/>
+
+            <TextBlock Text="Remarks" HorizontalAlignment="Left" Margin="25,225,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBox Text="{Binding RemarkText,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="25,275,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300"/>
+            
+            <Button Content="Cancel" Command="{Binding UpdateCommand}" CommandParameter="0" HorizontalAlignment="Left" Margin="150,330,0,0" VerticalAlignment="Top" Background="{ThemeResource AppBarBackgroundThemeBrush}" />
+            <Button Content="UpDate" Command="{Binding CancelCommand}" CommandParameter="1" HorizontalAlignment="Left" Margin="250,330,0,0" VerticalAlignment="Top" Background="{ThemeResource AppBarBackgroundThemeBrush}"/>
             <!--The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
                 Place your content here.-->
         </Grid>
