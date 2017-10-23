@@ -1,9 +1,13 @@
 ﻿using System;
-
+using Microsoft.EntityFrameworkCore;
 using OSKEquipmentManager.Services;
-
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
+using OSKEquipmentManager.Models;
 
 namespace OSKEquipmentManager
 {
@@ -27,9 +31,14 @@ namespace OSKEquipmentManager
         public App()
         {
             InitializeComponent();
+            //TODO: this.Suspending+=OnSuspending;
+            using (var db = new EquipmentInformationContext())
+            {
+                db.Database.Migrate();
+            }
 
-            // Deferred execution until used. Check https://msdn.microsoft.com/library/dd642331(v=vs.110).aspx for further info on Lazy<T> class.
-            _activationService = new Lazy<ActivationService>(CreateActivationService);
+                // Deferred execution until used. Check https://msdn.microsoft.com/library/dd642331(v=vs.110).aspx for further info on Lazy<T> class.
+                _activationService = new Lazy<ActivationService>(CreateActivationService);
         }
 
         /// <summary>

@@ -6,6 +6,7 @@ using OSKEquipmentManager.Common;
 using OSKEquipmentManager.Models;
 using System.Linq;
 using System.Collections.Generic;
+using Windows.UI.Xaml.Controls;
 
 namespace OSKEquipmentManager.ViewModels
 {
@@ -72,10 +73,12 @@ namespace OSKEquipmentManager.ViewModels
                     {
                         var update = new EquipmentInformation
                         {
-                            EquipmentName = this.newEquipName,
-                            BorrowingMember = this.personName,
-                            Remarks = this.remarkText
+                            EquipmentName = this.NewEquipName,
+                            BorrowingMember = this.PersonName,
+                            Remarks = this.RemarkText
                         };
+
+                        //No such table: Information
                         db.Informations.Add(update);
                         db.SaveChanges();
 

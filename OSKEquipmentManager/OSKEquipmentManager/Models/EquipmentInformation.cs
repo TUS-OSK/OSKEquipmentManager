@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
 
 namespace OSKEquipmentManager.Models
 {
@@ -10,7 +11,7 @@ namespace OSKEquipmentManager.Models
         Other
     }
 
-    class EquipmentInformationContext:DbContext
+    public class EquipmentInformationContext:DbContext
     {
         public DbSet<EquipmentInformation> Informations { get; set; }
 
