@@ -1,0 +1,34 @@
+﻿<Page
+    x:Class="OSKEquipmentManager.Views.PivotPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    DataContext="{Binding PivotViewModel, Source={StaticResource Locator}}"
+    xmlns:model="using:OSKEquipmentManager.Models"
+    xmlns:views="using:OSKEquipmentManager.Views"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource SystemControlChromeHighAcrylicWindowMediumBrush}">
+        <StackPanel>
+            <TextBlock Text="OSKEquipmentManager" Style="{ThemeResource BodyTextBlockStyle}" Height="20"/>
+            <Pivot x:Uid="PivotPage" >
+                <PivotItem x:Uid="PivotItem_Main">
+                    <Frame>
+                        <views:MainPage/>
+                    </Frame>
+                </PivotItem>
+                <PivotItem x:Uid="PivotItem_UpdateForm">
+                    <Frame>
+                        <views:UpdateFormPage/>
+                    </Frame>
+                </PivotItem>
+                <PivotItem x:Uid="PivotItem_EquipmentList">
+                    <Frame>
+                        <views:EquipmentListPage/>
+                    </Frame>
+                </PivotItem>
+            </Pivot>
+        </StackPanel>
+    </Grid>
+</Page>
