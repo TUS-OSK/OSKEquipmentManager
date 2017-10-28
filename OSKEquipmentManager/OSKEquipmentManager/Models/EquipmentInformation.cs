@@ -6,9 +6,9 @@ namespace OSKEquipmentManager.Models
 {
     public enum EquipmentStatus
     {
-        Availble,
+        利用可能,
         InLending,
-        Other
+        紛失中
     }
 
     public class EquipmentInformationContext:DbContext

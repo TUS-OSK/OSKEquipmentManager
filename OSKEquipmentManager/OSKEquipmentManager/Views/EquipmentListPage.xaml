@@ -4,9 +4,11 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    DataContext="{Binding EquipmentListViewModel, Source={StaticResource Locator}}"
+    DataContext="{Binding UpdateFormViewModel, Source={StaticResource Locator}}"
     xmlns:tg="using:Telerik.UI.Xaml.Controls.Grid"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    Loaded="Page_Loaded">
+    
     <Grid
         x:Name="ContentArea"
         Margin="12,0,12,0">
@@ -25,8 +27,34 @@
         <Grid
             Grid.Row="1"
             VerticalAlignment="Top" Height="400" ScrollViewer.VerticalScrollMode="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto"
-            Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}" >
-            <tg:RadDataGrid UserFilterMode="Disabled" ColumnDataOperationsMode="Inline" x:Name="grid" ItemsSource="{x:Bind ViewModel.Source}" Margin="-10,0,10,0"  Background="Gray"/>
+            Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
+            <tg:RadDataGrid x:Name="EqData"
+                            UserFilterMode="Disabled"
+                            CanUserChooseColumns="False"
+                            ColumnDataOperationsMode="Inline"
+                            Margin="-10,0,10,0"
+                            Background="Gray"
+                            AutoGenerateColumns="False"
+                            ItemsSource="{Binding ItemSources,Mode=TwoWay}">
+                <tg:RadDataGrid.Columns>
+                    <tg:DataGridTemplateColumn Header="備品名" CanUserSort="True">
+                        <tg:DataGridTemplateColumn.CellContentTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding EquipmentName}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </DataTemplate>
+                        </tg:DataGridTemplateColumn.CellContentTemplate>
+                    </tg:DataGridTemplateColumn>
+                    <tg:DataGridTemplateColumn Header="貸出状況">
+                        <tg:DataGridTemplateColumn.CellContentTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Status}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </DataTemplate>
+                        </tg:DataGridTemplateColumn.CellContentTemplate>
+                    </tg:DataGridTemplateColumn>
+                </tg:RadDataGrid.Columns>
+            </tg:RadDataGrid>
+
+
         </Grid>
     </Grid>
 </Page>

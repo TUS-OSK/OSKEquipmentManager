@@ -3,6 +3,9 @@
 using OSKEquipmentManager.ViewModels;
 
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml;
+using OSKEquipmentManager.Models;
+using System.Linq;
 
 namespace OSKEquipmentManager.Views
 {
@@ -10,7 +13,7 @@ namespace OSKEquipmentManager.Views
     {
         private EquipmentListViewModel ViewModel
         {
-            get { return DataContext as EquipmentListViewModel; }
+            get { return DataContext as EquipmentListViewModel;  }
         }
 
         // TODO WTS: Change the grid as appropriate to your app.
@@ -19,6 +22,14 @@ namespace OSKEquipmentManager.Views
         public EquipmentListPage()
         {
             InitializeComponent();
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            using (var db = new EquipmentInformationContext())
+            {
+                EqData.ItemsSource = db.Informations.ToList();
+            }
         }
     }
 }

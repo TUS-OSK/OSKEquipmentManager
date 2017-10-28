@@ -19,7 +19,7 @@ namespace OSKEquipmentManager.ViewModels
             set
             {
                 this.newEquipName = value;
-                RaisePropertyChanged(nameof(newEquipName));
+                RaisePropertyChanged(nameof(NewEquipName));
             }
         }
 
@@ -30,7 +30,7 @@ namespace OSKEquipmentManager.ViewModels
             set
             {
                 this.personName = value;
-                RaisePropertyChanged(nameof(personName));
+                RaisePropertyChanged(nameof(PersonName));
             }
         }
 
@@ -41,7 +41,7 @@ namespace OSKEquipmentManager.ViewModels
             set
             {
                 this.remarkText = value;
-                RaisePropertyChanged(nameof(remarkText));
+                RaisePropertyChanged(nameof(RemarkText));
             }
         }
 
@@ -63,6 +63,10 @@ namespace OSKEquipmentManager.ViewModels
             }
         }
 
+
+        EquipmentListViewModel ev = new EquipmentListViewModel();
+        
+
         public ICommand UpdateCommand
         {
             get
@@ -78,7 +82,6 @@ namespace OSKEquipmentManager.ViewModels
                             Remarks = this.RemarkText
                         };
 
-                        //No such table: Information
                         db.Informations.Add(update);
                         db.SaveChanges();
 
@@ -89,6 +92,7 @@ namespace OSKEquipmentManager.ViewModels
                         RaisePropertyChanged(nameof(NewEquipName));
                         RaisePropertyChanged(nameof(PersonName));
                         RaisePropertyChanged(nameof(RemarkText));
+
 
                         this.ItemSources = db.Informations.ToList();
                     }
