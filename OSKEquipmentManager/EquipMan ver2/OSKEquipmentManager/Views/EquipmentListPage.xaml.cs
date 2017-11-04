@@ -28,7 +28,7 @@ namespace OSKEquipmentManager.Views
         {
             using (var db = new EquipmentInformationContext())
             {
-                EqData.ItemsSource = db.Informations.ToList();
+                EquipmentList.ItemsSource = db.Informations.ToList();
             }
         }
     }

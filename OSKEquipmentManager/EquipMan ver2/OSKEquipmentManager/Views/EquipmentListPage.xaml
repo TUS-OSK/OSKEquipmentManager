@@ -10,9 +10,9 @@
     mc:Ignorable="d"
     Loaded="Page_Loaded">
 
-    <Page.DataContext>
+    <!--<Page.DataContext>
         <viewmodels:UpdateFormViewModel/>
-    </Page.DataContext>
+    </Page.DataContext>-->
 
     <Grid
         x:Name="ContentArea"
