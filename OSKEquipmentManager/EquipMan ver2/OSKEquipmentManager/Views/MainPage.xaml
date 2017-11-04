@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     DataContext="{Binding MainViewModel, Source={StaticResource Locator}}"
+    xmlns:viewcontrols="using:OSKEquipmentManager.Views.Controls"
     mc:Ignorable="d">
     <Grid
         x:Name="ContentArea"
@@ -24,9 +25,17 @@
             Grid.Row="1" 
             Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}" >
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="3*"/>
                 <ColumnDefinition/>
+                <ColumnDefinition Width="4*"/>
             </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Frame>
+                    <viewcontrols:EquipListViewControl/>
+                </Frame>
+                <Frame>
+                    <viewcontrols:EquipDetailControl/>
+                </Frame>
+            </Grid>
             <!--The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
                 Place your content here.-->
         </Grid>

@@ -47,7 +47,7 @@ namespace OSKEquipmentManager.Views
                 switch (args.InvokedItem)
                 {
                     case "Main":
-                        ContentFrame.Navigate(typeof(EquipmentListPage));
+                        ContentFrame.Navigate(typeof(MainPage));
                         break;
                     case "Add":
                         ContentFrame.Navigate(typeof(UpdateFormPage));
@@ -69,7 +69,7 @@ namespace OSKEquipmentManager.Views
                 switch (item.Tag)
                 {
                     case "main":
-                        ContentFrame.Navigate(typeof(EquipmentListPage));
+                        ContentFrame.Navigate(typeof(MainPage));
                         break;
                     case "add":
                         ContentFrame.Navigate(typeof(UpdateFormPage));

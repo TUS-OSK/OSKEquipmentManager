@@ -6,9 +6,14 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     DataContext="{Binding UpdateFormViewModel, Source={StaticResource Locator}}"
     xmlns:tg="using:Telerik.UI.Xaml.Controls.Grid"
+    xmlns:viewmodels="using:OSKEquipmentManager.ViewModels"
     mc:Ignorable="d"
     Loaded="Page_Loaded">
-    
+
+    <Page.DataContext>
+        <viewmodels:UpdateFormViewModel/>
+    </Page.DataContext>
+
     <Grid
         x:Name="ContentArea"
         Margin="12,0,12,0">
@@ -28,33 +33,16 @@
             Grid.Row="1"
             VerticalAlignment="Top" Height="400" ScrollViewer.VerticalScrollMode="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto"
             Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
-
-            <tg:RadDataGrid x:Name="EqData"
-                            UserFilterMode="Disabled"
-                            CanUserChooseColumns="False"
-                            ColumnDataOperationsMode="Inline"
-                            Margin="-10,0,10,0"
-                            Background="Gray"
-                            AutoGenerateColumns="False"
-                            ItemsSource="{Binding ItemSources,Mode=TwoWay}">
-
-                <tg:RadDataGrid.Columns>
-                    <tg:DataGridTemplateColumn Header="備品名" CanUserSort="True">
-                        <tg:DataGridTemplateColumn.CellContentTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding EquipmentName}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            </DataTemplate>
-                        </tg:DataGridTemplateColumn.CellContentTemplate>
-                    </tg:DataGridTemplateColumn>
-                    <tg:DataGridTemplateColumn Header="貸出状況">
-                        <tg:DataGridTemplateColumn.CellContentTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Status}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            </DataTemplate>
-                        </tg:DataGridTemplateColumn.CellContentTemplate>
-                    </tg:DataGridTemplateColumn>
-                </tg:RadDataGrid.Columns>
-            </tg:RadDataGrid>
+            <ListView ScrollViewer.VerticalScrollMode="Auto"
+                      ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                      Name="EquipmentList"
+                      ItemsSource="{Binding ItemSources,Mode=TwoWay}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding db,Mode=TwoWay}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </Grid>
     </Grid>
 </Page>
