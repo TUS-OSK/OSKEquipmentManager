@@ -141,6 +141,12 @@
     <Compile Include="ViewModels\NavigationViewModel.cs" />
     <Compile Include="ViewModels\UpdateFormViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
+    <Compile Include="Views\Controls\EquipDetailControl.xaml.cs">
+      <DependentUpon>EquipDetailControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Controls\EquipListViewControl.xaml.cs">
+      <DependentUpon>EquipListViewControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\EquipmentListPage.xaml.cs">
       <DependentUpon>EquipmentListPage.xaml</DependentUpon>
     </Compile>
@@ -183,6 +189,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Views\Controls\EquipDetailControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Controls\EquipListViewControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\EquipmentListPage.xaml">
       <Generator>MSBuild:Compile</Generator>

@@ -7,7 +7,7 @@ namespace OSKEquipmentManager.Models
     public enum EquipmentStatus
     {
         利用可能,
-        InLending,
+        貸出中,
         紛失中
     }
 

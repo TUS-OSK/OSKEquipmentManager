@@ -55,7 +55,6 @@
                     </tg:DataGridTemplateColumn>
                 </tg:RadDataGrid.Columns>
             </tg:RadDataGrid>
-
         </Grid>
     </Grid>
 </Page>
