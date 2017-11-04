@@ -36,10 +36,10 @@
             <ListView ScrollViewer.VerticalScrollMode="Auto"
                       ScrollViewer.HorizontalScrollBarVisibility="Auto"
                       Name="EquipmentList"
-                      ItemsSource="{Binding ItemSources,Mode=TwoWay}">
+                      ItemsSource="{Binding ItemSources, Mode=TwoWay}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding db,Mode=TwoWay}"/>
+                        <TextBlock Text="{Binding EquipmentName, Mode=TwoWay}"/>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
