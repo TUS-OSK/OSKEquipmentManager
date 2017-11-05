@@ -34,7 +34,7 @@
                 </Frame>
             </Grid>
             <Grid Grid.Column="1">
-                <Frame>
+                <Frame x:Name="EquipDitail">
                     <viewcontrols:EquipDetailControl/>
                 </Frame>
             </Grid>

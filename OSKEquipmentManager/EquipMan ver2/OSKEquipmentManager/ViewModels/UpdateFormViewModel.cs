@@ -65,7 +65,7 @@ namespace OSKEquipmentManager.ViewModels
 
 
         EquipmentListViewModel ev = new EquipmentListViewModel();
-        
+
 
         public ICommand UpdateCommand
         {
@@ -116,10 +116,46 @@ namespace OSKEquipmentManager.ViewModels
                 });
             }
         }
-        //public UpdateFormViewModel()
-        //{
-        //    UpdateCommand = new UpdateFormPageUpdateCommand(this);
-        //    CancelCommand = new UpdateFormPageCancelCommand(this);
-        //}
+
+        private int selectedIndexes;
+        public int SelectedIndexes
+        {
+            get
+            { return this.selectedIndexes; }
+            set
+            {
+                this.selectedIndexes = value;
+                RaisePropertyChanged(nameof(SelectedIndexes));
+            }
+        }
+
+        public ICommand DeleteCommand
+        {
+            get
+            {
+                return new DelegateCommand(param =>
+                {
+                    using (var db = new EquipmentInformationContext())
+                    {
+                        var itmssource = ItemSources as List<EquipmentInformation>;
+                        if (SelectedIndexes == -1) return;
+                        var equip = itmssource[SelectedIndexes];
+
+                        if (equip != null)
+                        {
+                            db.Informations.Remove(equip);
+                            db.SaveChanges();
+
+                            this.ItemSources = db.Informations.ToList();
+                        }
+                    }
+                });
+                //public UpdateFormViewModel()
+                //{
+                //    UpdateCommand = new UpdateFormPageUpdateCommand(this);
+                //    CancelCommand = new UpdateFormPageCancelCommand(this);
+                //}
+            }
+        }
     }
 }

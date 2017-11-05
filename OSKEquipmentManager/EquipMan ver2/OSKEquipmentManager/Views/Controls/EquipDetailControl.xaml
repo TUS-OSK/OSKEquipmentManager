@@ -3,6 +3,8 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:OSKEquipmentManager.Views.Controls"
+    xmlns:viewmodels="using:OSKEquipmentManager.ViewModels"
+    DataContext="{Binding UpdateFormViewModel, Source={StaticResource Locator}}"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
@@ -10,6 +12,18 @@
     d:DesignWidth="400">
 
     <Grid>
-        <TextBlock Text="EquipmentName:" Style="{ThemeResource BodyTextBlockStyle}"/>
+        <StackPanel>
+            <TextBlock Text="EquipmentName:" Style="{ThemeResource BodyTextBlockStyle}"/>
+            <TextBlock x:Name="EquipmentNameText" Text="" Style="{ThemeResource TitleTextBlockStyle}"/>
+            <TextBlock Text="Status:" Style="{ThemeResource BodyTextBlockStyle}"/>
+            <TextBlock x:Name="StatusText" Text="" Style="{ThemeResource TitleTextBlockStyle}"/>
+            <TextBlock Text="LoanDate:" Style="{ThemeResource BodyTextBlockStyle}"/>
+            <TextBlock x:Name="LoanDateText" Text="" Style="{ThemeResource BodyTextBlockStyle}"/>
+            <TextBlock Text="BorrowingMember" Style="{ThemeResource BodyTextBlockStyle}"/>
+            <TextBlock x:Name="BrrorwingMemberText" Text="" Style="{ThemeResource BodyTextBlockStyle}"/>
+            <TextBlock Text="Remarks" Style="{ThemeResource BodyTextBlockStyle}"/>
+            <TextBlock x:Name="RemarksText" Text="" Style="{ThemeResource BodyTextBlockStyle}"/>
+        </StackPanel>
+        <Button Content="Delete" Command="{Binding DeleteCommand}" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
     </Grid>
 </UserControl>
