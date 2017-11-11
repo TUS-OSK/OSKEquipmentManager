@@ -24,8 +24,6 @@
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Style="{StaticResource TitleTextBlockStyle}"
-                               Text="OSKEquipmentManager"/>
                     <CommandBar Grid.Column="1"
                                 Background="{ThemeResource SystemControlBackgroundAltHighBrush}"/>
                 </Grid>

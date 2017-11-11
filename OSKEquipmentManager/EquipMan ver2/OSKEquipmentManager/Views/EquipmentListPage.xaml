@@ -32,11 +32,12 @@
         <Grid
             Grid.Row="1"
             VerticalAlignment="Top" Height="400" ScrollViewer.VerticalScrollMode="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto"
-            Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
+            Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}">
             <ListView ScrollViewer.VerticalScrollMode="Auto"
                       ScrollViewer.HorizontalScrollBarVisibility="Auto"
                       Name="EquipmentList"
-                      ItemsSource="{Binding ItemSources, Mode=TwoWay}">
+                      ItemsSource="{Binding ItemSources, Mode=TwoWay}"
+                      SelectedIndex="{Binding SelectedIndexes, Mode=TwoWay}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding EquipmentName, Mode=TwoWay}"/>

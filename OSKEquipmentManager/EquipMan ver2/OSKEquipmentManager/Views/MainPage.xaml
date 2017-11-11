@@ -22,13 +22,13 @@
             Style="{StaticResource PageTitleStyle}"/>
 
         <Grid 
-            Grid.Row="1" 
-            Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}" >
+            Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="4*"/>
             </Grid.ColumnDefinitions>
-            <Grid Grid.Column="0">
+            <Grid Grid.Column="0"
+                  Background="{ThemeResource SystemControlChromeLowAcrylicWindowBrush}">
                 <Frame>
                     <viewcontrols:EquipListViewControl/>
                 </Frame>
