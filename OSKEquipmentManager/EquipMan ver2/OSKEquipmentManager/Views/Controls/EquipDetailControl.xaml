@@ -14,15 +14,19 @@
     <Grid>
         <StackPanel>
             <TextBlock Text="EquipmentName:" Style="{ThemeResource BodyTextBlockStyle}"/>
-            <TextBlock x:Name="EquipmentNameText" Text="" Style="{ThemeResource TitleTextBlockStyle}"/>
+            <TextBlock x:Name="EquipmentNameText" Text="{Binding DetailEqNameText,Mode=TwoWay}" Style="{ThemeResource TitleTextBlockStyle}"/>
+            
             <TextBlock Text="Status:" Style="{ThemeResource BodyTextBlockStyle}"/>
-            <TextBlock x:Name="StatusText" Text="" Style="{ThemeResource TitleTextBlockStyle}"/>
+            <TextBlock x:Name="StatusText" Text="{Binding DetailEqStatusText,Mode=TwoWay}" Style="{ThemeResource TitleTextBlockStyle}"/>
+            
             <TextBlock Text="LoanDate:" Style="{ThemeResource BodyTextBlockStyle}"/>
-            <TextBlock x:Name="LoanDateText" Text="" Style="{ThemeResource BodyTextBlockStyle}"/>
+            <TextBlock x:Name="LoanDateText" Text="{Binding DetailEqLoanDate,Mode=TwoWay}" Style="{ThemeResource BodyTextBlockStyle}"/>
+            
             <TextBlock Text="BorrowingMember" Style="{ThemeResource BodyTextBlockStyle}"/>
-            <TextBlock x:Name="BrrorwingMemberText" Text="" Style="{ThemeResource BodyTextBlockStyle}"/>
+            <TextBlock x:Name="BrrorwingMemberText" Text="{Binding DetailEqBorrowMem}" Style="{ThemeResource BodyTextBlockStyle}"/>
+            
             <TextBlock Text="Remarks" Style="{ThemeResource BodyTextBlockStyle}"/>
-            <TextBlock x:Name="RemarksText" Text="" Style="{ThemeResource BodyTextBlockStyle}"/>
+            <TextBlock x:Name="RemarksText" Text="{Binding DetailEqRemarks}" Style="{ThemeResource BodyTextBlockStyle}"/> 
         </StackPanel>
         <Button Content="Delete" Command="{Binding DeleteCommand}" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
     </Grid>

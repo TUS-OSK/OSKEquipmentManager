@@ -64,7 +64,76 @@ namespace OSKEquipmentManager.ViewModels
         }
 
 
-        EquipmentListViewModel ev = new EquipmentListViewModel();
+        public string DetailEqNameText
+        {
+            get
+            {
+                using (var db = new EquipmentInformationContext())
+                {
+                    if (SelectedIndexes == -1)
+                        return ItemSources[1].EquipmentName;
+                    var detail = ItemSources[SelectedIndexes];
+                    return detail.EquipmentName;
+                }
+            }
+        }
+
+        public EquipmentStatus DetailEqStatusText
+        {
+            get
+            {
+                using (var db = new EquipmentInformationContext())
+                {
+                    if (SelectedIndexes == -1)
+                        return ItemSources[1].Status;
+                    var detail = ItemSources[SelectedIndexes];
+                    return detail.Status;
+                }
+            }
+        }
+
+        public DateTime DetailEqLoanDate
+        {
+            get
+            {
+                using (var db = new EquipmentInformationContext())
+                {
+                    if (SelectedIndexes == -1)
+                        return ItemSources[1].LoanDate;
+                    var detail = ItemSources[SelectedIndexes];
+                    return detail.LoanDate;
+                }
+            }
+        }
+
+        public string DetailEqBorrowMem
+        {
+            get
+            {
+                using (var db = new EquipmentInformationContext())
+                {
+                    if (SelectedIndexes == -1)
+                        return ItemSources[1].BorrowingMember;
+                    var detail = ItemSources[SelectedIndexes];
+                    return detail.BorrowingMember;
+                }
+            }
+        }
+
+        public string DetailEqRemarks
+        {
+            get
+            {
+                using (var db = new EquipmentInformationContext())
+                {
+                    if (SelectedIndexes == -1)
+                        return ItemSources[1].Remarks;
+                    var detail = ItemSources[SelectedIndexes];
+                    return detail.Remarks;
+                }
+            }
+        }
+        //EquipmentListViewModel ev = new EquipmentListViewModel();
 
 
         public ICommand UpdateCommand
@@ -126,6 +195,11 @@ namespace OSKEquipmentManager.ViewModels
             {
                 this.selectedIndexes = value;
                 RaisePropertyChanged(nameof(SelectedIndexes));
+                RaisePropertyChanged(nameof(DetailEqNameText));
+                RaisePropertyChanged(nameof(DetailEqStatusText));
+                RaisePropertyChanged(nameof(DetailEqLoanDate));
+                RaisePropertyChanged(nameof(DetailEqBorrowMem));
+                RaisePropertyChanged(nameof(DetailEqRemarks));
             }
         }
 
