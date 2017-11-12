@@ -71,7 +71,7 @@ namespace OSKEquipmentManager.ViewModels
                 using (var db = new EquipmentInformationContext())
                 {
                     if (SelectedIndexes == -1)
-                        return ItemSources[1].EquipmentName;
+                        return "";
                     var detail = ItemSources[SelectedIndexes];
                     return detail.EquipmentName;
                 }
@@ -85,7 +85,7 @@ namespace OSKEquipmentManager.ViewModels
                 using (var db = new EquipmentInformationContext())
                 {
                     if (SelectedIndexes == -1)
-                        return ItemSources[1].Status;
+                        return "";
                     var detail = ItemSources[SelectedIndexes];
                     return detail.Status;
                 }
@@ -99,8 +99,8 @@ namespace OSKEquipmentManager.ViewModels
                 using (var db = new EquipmentInformationContext())
                 {
                     if (SelectedIndexes == -1)
-                        return ItemSources[1].LoanDate;
-                    var detail = ItemSources[SelectedIndexes];
+                        return new DateTime { };
+                     var detail = ItemSources[SelectedIndexes];
                     return detail.LoanDate;
                 }
             }
@@ -113,7 +113,7 @@ namespace OSKEquipmentManager.ViewModels
                 using (var db = new EquipmentInformationContext())
                 {
                     if (SelectedIndexes == -1)
-                        return ItemSources[1].BorrowingMember;
+                        return "";
                     var detail = ItemSources[SelectedIndexes];
                     return detail.BorrowingMember;
                 }
@@ -127,7 +127,7 @@ namespace OSKEquipmentManager.ViewModels
                 using (var db = new EquipmentInformationContext())
                 {
                     if (SelectedIndexes == -1)
-                        return ItemSources[1].Remarks;
+                        return "";
                     var detail = ItemSources[SelectedIndexes];
                     return detail.Remarks;
                 }
