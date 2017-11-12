@@ -11,35 +11,22 @@
         x:Name="ContentArea"
         Margin="{StaticResource MediumLeftRightMargin}">
 
-        <Grid.RowDefinitions>
-            <RowDefinition x:Name="TitleRow" Height="48"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-
-        <TextBlock
-            x:Name="TitlePage"
-            x:Uid="Main_Title"
-            Style="{StaticResource PageTitleStyle}"/>
-
-        <Grid 
-            Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition Width="4*"/>
-            </Grid.ColumnDefinitions>
-            <Grid Grid.Column="0"
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0"
                   Background="{ThemeResource SystemControlChromeLowAcrylicWindowBrush}">
-                <Frame>
-                    <viewcontrols:EquipListViewControl/>
-                </Frame>
-            </Grid>
-            <Grid Grid.Column="1">
-                <Frame x:Name="EquipDitail">
-                    <viewcontrols:EquipDetailControl/>
-                </Frame>
-            </Grid>
-            <!--The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
-                Place your content here.-->
+            <Frame>
+                <viewcontrols:EquipListViewControl/>
+            </Frame>
         </Grid>
+        <Grid Grid.Column="1">
+            <Frame x:Name="EquipDitail">
+                <viewcontrols:EquipDetailControl/>
+            </Frame>
+        </Grid>
+        <!--The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
+                Place your content here.-->
     </Grid>
 </Page>
