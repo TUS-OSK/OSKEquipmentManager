@@ -31,8 +31,8 @@
 
         <Grid
             Grid.Row="1"
-            VerticalAlignment="Top" Height="400" ScrollViewer.VerticalScrollMode="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto"
-            Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}">
+            VerticalAlignment="Top" Height="550" ScrollViewer.VerticalScrollMode="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto"
+            Background="{ThemeResource SystemControlChromeLowAcrylicWindowBrush}">
             <ListView ScrollViewer.VerticalScrollMode="Auto"
                       ScrollViewer.HorizontalScrollBarVisibility="Auto"
                       Name="EquipmentList"
