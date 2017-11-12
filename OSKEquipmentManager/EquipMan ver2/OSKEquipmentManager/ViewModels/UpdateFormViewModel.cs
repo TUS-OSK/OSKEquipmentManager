@@ -85,7 +85,7 @@ namespace OSKEquipmentManager.ViewModels
                 using (var db = new EquipmentInformationContext())
                 {
                     if (SelectedIndexes == -1)
-                        return "";
+                        return EquipmentStatus.利用可能;
                     var detail = ItemSources[SelectedIndexes];
                     return detail.Status;
                 }
