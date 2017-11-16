@@ -25,6 +25,11 @@
             <TextBox Text="{Binding PersonName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="25,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="600" FontSize="24"/>
 
             <TextBlock Text="貸し出し日数" HorizontalAlignment="Left" Margin="25,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36"/>
+            <StackPanel Orientation="Horizontal" Margin="0,20" x:Name="RadioButtonGroup1">
+                <RadioButton Tag="1" Content="1日後" IsChecked="{Binding Is1}" FontSize="24" Margin="25,0,0,0"/>
+                <RadioButton Tag="2" Content="3日後" IsChecked="{Binding Is2}" FontSize="24" Margin="25,0,0,0"/>
+                <RadioButton Tag="3" Content="1週間" IsChecked="{Binding Is3}" FontSize="24" Margin="25,0,0,0"/>
+            </StackPanel>
 
             <TextBlock Text="備考" HorizontalAlignment="Left" Margin="25,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36"/>
             <TextBox Text="{Binding RemarkText,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="25,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="600" FontSize="24" Height="250"/>
