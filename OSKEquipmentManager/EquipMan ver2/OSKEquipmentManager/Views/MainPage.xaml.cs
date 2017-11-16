@@ -22,5 +22,15 @@ namespace OSKEquipmentManager.Views
         private void EquipmentList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
         }
+
+        private void EquipListViewControl_Loaded(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+
+        }
+
+        private void EquipListViewControl_Loaded_1(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+
+        }
     }
 }

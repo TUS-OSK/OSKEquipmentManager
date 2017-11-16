@@ -18,9 +18,9 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
-
+            <Button Content="Delete" Command="{Binding DeleteCommand}" VerticalAlignment="Top" HorizontalAlignment="Right"/>
             <StackPanel>
-                <TextBox x:Name="Search" VerticalAlignment="Top" Height="20" Width="200"/>
+                <TextBox x:Name="Search" Height="20" Width="70" VerticalAlignment="Top" HorizontalAlignment="Left"/>
                 <Button Content="＋" x:Name="AddButton" Height="20" Click="AddButton_Click"/>
             </StackPanel>
         </Grid>

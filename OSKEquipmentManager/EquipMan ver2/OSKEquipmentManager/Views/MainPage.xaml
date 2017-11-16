@@ -23,7 +23,7 @@
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
                 <Frame>
-                    <viewcontrols:EquipListViewControl/>
+                    <viewcontrols:EquipListViewControl Loaded="EquipListViewControl_Loaded_1"/>
                 </Frame>
             </Grid>
             <Grid Grid.Row="1">
