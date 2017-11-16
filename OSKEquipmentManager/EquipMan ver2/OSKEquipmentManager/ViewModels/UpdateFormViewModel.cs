@@ -34,17 +34,6 @@ namespace OSKEquipmentManager.ViewModels
             }
         }
 
-        private DateTime returnPlanDay;
-        public DateTime ReturnPlanDay
-        {
-            get { return this.returnPlanDay; }
-            set
-            {
-                this.returnPlanDay = value;
-                RaisePropertyChanged(nameof(ReturnPlanDay));
-            }
-        }
-
         private string remarkText;
         public string RemarkText
         {
@@ -53,6 +42,17 @@ namespace OSKEquipmentManager.ViewModels
             {
                 this.remarkText = value;
                 RaisePropertyChanged(nameof(RemarkText));
+            }
+        }
+
+        private int selectedLoanPeriod;
+        public int SelectedLoanPeriod
+        {
+            get { return this.selectedIndexes; }
+            set
+            {
+                this.selectedIndexes = value;
+                RaisePropertyChanged(nameof(SelectedIndexes));
             }
         }
 
@@ -166,6 +166,24 @@ namespace OSKEquipmentManager.ViewModels
             }
         }
 
+        public string ReturnDate
+        {
+            get
+            {
+                if (ItemSources.Count >= 1)
+                {
+                    using (var db = new EquipmentInformationContext())
+                    {
+                        if (SelectedIndexes == -1)
+                            return "-";
+                        var detail = ItemSources[SelectedIndexes];
+                        return detail.LoanDate.AddDays(this.SelectedLoanPeriod).ToString();
+                    }
+                }
+                else { return "-"; }
+            }
+        }
+
         public string LastUpDate
         {
             get
@@ -197,7 +215,7 @@ namespace OSKEquipmentManager.ViewModels
                         {
                             EquipmentName = this.NewEquipName,
                             BorrowingMember = this.PersonName,
-                            ReturnPlanDate=this.ReturnPlanDay, //
+                            ReturnPlanDate=DateTime.Parse(this.ReturnDate),
                             Remarks = this.RemarkText
                         };
 
@@ -207,11 +225,9 @@ namespace OSKEquipmentManager.ViewModels
                         //Addを押したらTextBoxが空になる様にした
                         this.newEquipName = "";
                         this.personName = "";
-                        this.returnPlanDay = new DateTime().AddDays(14);
                         this.remarkText = "";
                         RaisePropertyChanged(nameof(NewEquipName));
                         RaisePropertyChanged(nameof(PersonName));
-                        RaisePropertyChanged(nameof(ReturnPlanDay));
                         RaisePropertyChanged(nameof(RemarkText));
 
 
@@ -230,7 +246,6 @@ namespace OSKEquipmentManager.ViewModels
                     //Cancelを押したらTextBoxが空になる様にした
                     this.newEquipName = "";
                     this.personName = "";
-                    this.returnPlanDay= new DateTime().AddDays(14);
                     this.remarkText = "";
                     RaisePropertyChanged(nameof(NewEquipName));
                     RaisePropertyChanged(nameof(PersonName));
