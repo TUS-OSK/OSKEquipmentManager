@@ -165,7 +165,24 @@ namespace OSKEquipmentManager.ViewModels
                 else { return ""; }
             }
         }
-        //EquipmentListViewModel ev = new EquipmentListViewModel();
+
+        public string LastUpDate
+        {
+            get
+            {
+                if (ItemSources.Count >= 1)
+                {
+                    using (var db = new EquipmentInformationContext())
+                    {
+                        if (SelectedIndexes == -1)
+                            return "-";
+                        var detail = ItemSources[SelectedIndexes];
+                        return detail.LastUpdateDate.ToString();
+                    }
+                }
+                else { return "-"; }
+            }
+        }
 
 
         public ICommand UpdateCommand
@@ -254,7 +271,7 @@ namespace OSKEquipmentManager.ViewModels
                             if (SelectedIndexes == 0) return;
                         }
                         if (SelectedIndexes == -1) return;
-                        
+
                         var equip = itmssource[SelectedIndexes];
 
                         if (equip != null)
@@ -266,11 +283,29 @@ namespace OSKEquipmentManager.ViewModels
                         }
                     }
                 });
-                //public UpdateFormViewModel()
-                //{
-                //    UpdateCommand = new UpdateFormPageUpdateCommand(this);
-                //    CancelCommand = new UpdateFormPageCancelCommand(this);
-                //}
+            }
+        }
+
+
+        public ICommand EditCancelCommand
+        {
+            get
+            {
+                return new DelegateCommand(param =>
+                {
+
+                });
+            }
+        }
+
+        public ICommand EditApplyCommand
+        {
+            get
+            {
+                return new DelegateCommand(param =>
+                {
+
+                });
             }
         }
     }
