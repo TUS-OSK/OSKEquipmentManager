@@ -19,14 +19,7 @@
         </NavigationView.MenuItems>
         <NavigationView.HeaderTemplate>
             <DataTemplate>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                    <CommandBar Grid.Column="1"
-                                Background="{ThemeResource SystemControlBackgroundAltHighBrush}"/>
-                </Grid>
+                <Grid Background="{ThemeResource SystemControlAltLowAcrylicWindowBrush}"/>
             </DataTemplate>
         </NavigationView.HeaderTemplate>
 
