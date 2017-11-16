@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    DataContext="{Binding MainViewModel, Source={StaticResource Locator}}"
+    DataContext="{Binding UpdateFormViewModel, Source={StaticResource Locator}}"
     xmlns:viewcontrols="using:OSKEquipmentManager.Views.Controls"
     mc:Ignorable="d">
     <Grid
@@ -17,9 +17,29 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0"
                   Background="{ThemeResource SystemControlChromeLowAcrylicWindowBrush}">
-            <Frame>
-                <viewcontrols:EquipListViewControl/>
-            </Frame>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Frame>
+                    <viewcontrols:EquipListViewControl/>
+                </Frame>
+            </Grid>
+            <Grid Grid.Row="1">
+                <ListView ScrollViewer.VerticalScrollMode="Auto"
+                      ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                      Name="EquipmentList"
+                      ItemsSource="{Binding ItemSources, Mode=TwoWay}"
+                      SelectedIndex="{Binding SelectedIndexes, Mode=TwoWay}"
+                      SelectionChanged="EquipmentList_SelectionChanged">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding EquipmentName, Mode=TwoWay}"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
         </Grid>
         <Grid Grid.Column="1">
             <Frame x:Name="EquipDitail">

@@ -30,7 +30,7 @@
             </DataTemplate>
         </NavigationView.HeaderTemplate>
 
-        <Frame x:Name="ContentFrame">
+        <Frame x:Name="ContentFrame" Background="{ThemeResource SystemControlAltLowAcrylicWindowBrush}">
             <Frame.ContentTransitions>
                 <TransitionCollection>
                     <ContentThemeTransition/>
