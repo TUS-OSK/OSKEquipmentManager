@@ -34,6 +34,10 @@ namespace OSKEquipmentManager.Models
 
         public EquipmentStatus Status { get; set; }
 
+        //public DateTime ReturnPlanDate { get; set; }
+
+        //public DateTime LastUpdateDate { get; set; }
+
         public DateTime LoanDate { get; set; }
 
         public string BorrowingMember { get; set; }

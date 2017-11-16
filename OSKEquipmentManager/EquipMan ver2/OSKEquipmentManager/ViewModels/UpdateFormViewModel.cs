@@ -233,7 +233,13 @@ namespace OSKEquipmentManager.ViewModels
                     using (var db = new EquipmentInformationContext())
                     {
                         var itmssource = ItemSources as List<EquipmentInformation>;
+
+                        if (ItemSources.Count == 0)
+                        {
+                            if (SelectedIndexes == 0) return;
+                        }
                         if (SelectedIndexes == -1) return;
+                        
                         var equip = itmssource[SelectedIndexes];
 
                         if (equip != null)
