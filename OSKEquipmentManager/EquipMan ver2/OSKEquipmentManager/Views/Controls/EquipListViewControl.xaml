@@ -18,6 +18,7 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
+
             <StackPanel>
                 <TextBox x:Name="Search" VerticalAlignment="Top" Height="20" Width="200"/>
                 <Button Content="＋" x:Name="AddButton" Height="20" Click="AddButton_Click"/>

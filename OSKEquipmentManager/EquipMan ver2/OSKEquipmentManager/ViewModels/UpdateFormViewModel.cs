@@ -68,16 +68,18 @@ namespace OSKEquipmentManager.ViewModels
         {
             get
             {
-                using (var db = new EquipmentInformationContext())
+                if (ItemSources.Count>=1)
                 {
-                    
-                        
-                    if (SelectedIndexes == -1)
-                        return "";
-                    var detail = ItemSources[SelectedIndexes];
-                    return detail.EquipmentName;
+                    using (var db = new EquipmentInformationContext())
+                    {
+                        if (SelectedIndexes == -1)
+                            return "";
+                        var detail = ItemSources[SelectedIndexes];
+                        return detail.EquipmentName;
+                    }
 
                 }
+                else { return ""; }
             }
         }
 
@@ -85,13 +87,17 @@ namespace OSKEquipmentManager.ViewModels
         {
             get
             {
-                using (var db = new EquipmentInformationContext())
+                if (ItemSources.Count>=1)
                 {
-                    if (SelectedIndexes == -1)
-                        return EquipmentStatus.利用可能;
-                    var detail = ItemSources[SelectedIndexes];
-                    return detail.Status;
+                    using (var db = new EquipmentInformationContext())
+                    {
+                        if (SelectedIndexes == -1)
+                            return EquipmentStatus.利用可能;
+                        var detail = ItemSources[SelectedIndexes];
+                        return detail.Status;
+                    }
                 }
+                else { return EquipmentStatus.利用可能; }
             }
         }
 
@@ -99,13 +105,17 @@ namespace OSKEquipmentManager.ViewModels
         {
             get
             {
-                using (var db = new EquipmentInformationContext())
+                if (ItemSources.Count>=1)
                 {
-                    if (SelectedIndexes == -1)
-                        return new DateTime { };
-                     var detail = ItemSources[SelectedIndexes];
-                    return detail.LoanDate;
+                    using (var db = new EquipmentInformationContext())
+                    {
+                        if (SelectedIndexes == -1)
+                            return new DateTime { };
+                        var detail = ItemSources[SelectedIndexes];
+                        return detail.LoanDate;
+                    }
                 }
+                else { return DateTime.Today; }
             }
         }
 
@@ -113,27 +123,35 @@ namespace OSKEquipmentManager.ViewModels
         {
             get
             {
-                using (var db = new EquipmentInformationContext())
+                if (ItemSources.Count>=1)
                 {
-                    if (SelectedIndexes == -1)
-                        return "";
-                    var detail = ItemSources[SelectedIndexes];
-                    return detail.BorrowingMember;
-                }
+                    using (var db = new EquipmentInformationContext())
+                    {
+                        if (SelectedIndexes == -1)
+                            return "";
+                        var detail = ItemSources[SelectedIndexes];
+                        return detail.BorrowingMember;
+                    }
             }
+                else { return ""; }
+        }
         }
 
         public string DetailEqRemarks
         {
             get
             {
-                using (var db = new EquipmentInformationContext())
+                if (ItemSources.Count>=1)
                 {
-                    if (SelectedIndexes == -1)
-                        return "";
-                    var detail = ItemSources[SelectedIndexes];
-                    return detail.Remarks;
+                    using (var db = new EquipmentInformationContext())
+                    {
+                        if (SelectedIndexes == -1)
+                            return "";
+                        var detail = ItemSources[SelectedIndexes];
+                        return detail.Remarks;
+                    }
                 }
+                else { return ""; }
             }
         }
         //EquipmentListViewModel ev = new EquipmentListViewModel();
