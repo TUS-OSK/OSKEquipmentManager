@@ -25,7 +25,7 @@ namespace OSKEquipmentManager.Views
             NavigationCacheMode = NavigationCacheMode.Required;
             InitializeComponent();
 
-            CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = true;
+            CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = false;
             ApplicationViewTitleBar titlebar = ApplicationView.GetForCurrentView().TitleBar;
             titlebar.ButtonBackgroundColor = Colors.Transparent;
             titlebar.ButtonInactiveBackgroundColor = Colors.Transparent;
@@ -37,7 +37,7 @@ namespace OSKEquipmentManager.Views
 
             foreach (NavigationViewItemBase item in NaviView.MenuItems)
             {
-                if (item is NavigationViewItem && item.Tag.ToString() == "main") ;
+                if (item is NavigationViewItem && item.Tag.ToString() == "main") 
                 NaviView.SelectedItem = item;
                 break;
             }

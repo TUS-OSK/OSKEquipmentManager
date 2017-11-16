@@ -8,21 +8,17 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     DataContext="{Binding UpdateFormViewModel, Source={StaticResource Locator}}"
-    d:DesignHeight="300"
+    d:DesignHeight="320"
     d:DesignWidth="400">
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="60"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
-            <Button Content="Delete" Command="{Binding DeleteCommand}" VerticalAlignment="Top" HorizontalAlignment="Right"/>
-            <StackPanel>
-                <TextBox x:Name="Search" Height="20" Width="70" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-                <Button Content="＋" x:Name="AddButton" Height="20" Click="AddButton_Click"/>
-            </StackPanel>
+            <Button Content="Delete" Command="{Binding DeleteCommand}" VerticalAlignment="Top" HorizontalAlignment="Right" Height="40" FontSize="20"/>
         </Grid>
         <Grid Grid.Row="1">
             <Frame>

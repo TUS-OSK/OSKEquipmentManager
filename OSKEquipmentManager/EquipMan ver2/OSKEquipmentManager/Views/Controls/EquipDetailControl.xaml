@@ -8,25 +8,24 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    d:DesignHeight="300"
+    d:DesignHeight="375"
     d:DesignWidth="400">
-
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <StackPanel>
-            <TextBlock Text="EquipmentName:" Style="{ThemeResource BodyTextBlockStyle}"/>
-            <TextBlock x:Name="EquipmentNameText" Text="{Binding DetailEqNameText,Mode=TwoWay}" Style="{ThemeResource TitleTextBlockStyle}"/>
+            <StackPanel>
+                <TextBlock Text="EquipmentName:" Style="{ThemeResource BodyTextBlockStyle}"/>
+                <TextBlock x:Name="EquipmentNameText" Text="{Binding DetailEqNameText,Mode=TwoWay}" Style="{ThemeResource TitleTextBlockStyle}" Margin="10,0,10,15"/>
 
-            <TextBlock Text="Status:" Style="{ThemeResource BodyTextBlockStyle}"/>
-            <TextBlock x:Name="StatusText" Text="{Binding DetailEqStatusText,Mode=TwoWay}" Style="{ThemeResource TitleTextBlockStyle}"/>
+                <TextBlock Text="Status:" Style="{ThemeResource BodyTextBlockStyle}"/>
+                <TextBlock x:Name="StatusText" Text="{Binding DetailEqStatusText,Mode=TwoWay}" Style="{ThemeResource TitleTextBlockStyle}" Margin="10,0,10,15"/>
 
-            <TextBlock Text="LoanDate:" Style="{ThemeResource BodyTextBlockStyle}"/>
-            <TextBlock x:Name="LoanDateText" Text="{Binding DetailEqLoanDate,Mode=TwoWay}" Style="{ThemeResource BodyTextBlockStyle}"/>
+                <TextBlock Text="LoanDate:" Style="{ThemeResource BodyTextBlockStyle}"/>
+                <TextBlock x:Name="LoanDateText" Text="{Binding DetailEqLoanDate,Mode=TwoWay}" Style="{ThemeResource BodyTextBlockStyle}" Margin="10,0,10,15"/>
 
-            <TextBlock Text="BorrowingMember" Style="{ThemeResource BodyTextBlockStyle}"/>
-            <TextBlock x:Name="BrrorwingMemberText" Text="{Binding DetailEqBorrowMem}" Style="{ThemeResource BodyTextBlockStyle}"/>
+                <TextBlock Text="BorrowingMember" Style="{ThemeResource BodyTextBlockStyle}"/>
+                <TextBlock x:Name="BrrorwingMemberText" Text="{Binding DetailEqBorrowMem}" Style="{ThemeResource BodyTextBlockStyle}" Margin="10,0,10,15"/>
 
-            <TextBlock Text="Remarks" Style="{ThemeResource BodyTextBlockStyle}"/>
-            <TextBlock x:Name="RemarksText" Text="{Binding DetailEqRemarks}" Style="{ThemeResource BodyTextBlockStyle}"/>
-        </StackPanel>
-    </Grid>
+                <TextBlock Text="Remarks" Style="{ThemeResource BodyTextBlockStyle}"/>
+                <TextBlock x:Name="RemarksText" Text="{Binding DetailEqRemarks}" Style="{ThemeResource BodyTextBlockStyle}" Margin="10,0,10,15"/>
+            </StackPanel>
+        </Grid>
 </UserControl>

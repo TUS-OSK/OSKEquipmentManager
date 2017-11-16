@@ -6,25 +6,34 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     DataContext="{Binding UpdateFormViewModel, Source={StaticResource Locator}}"
     mc:Ignorable="d"
+    Height="1800"
+    Width="1200"
     Loaded="Page_Loaded">
-   
+
     <Grid
         x:Name="ContentArea"
         Margin="{StaticResource MediumLeftRightMargin}"
         >
+        <StackPanel>
+            <TextBlock Text="備品登録" HorizontalAlignment="Left" Margin="25,25,0,0" TextWrapping="Wrap" FontSize="44"  VerticalAlignment="Top"/>
+            <TextBlock Text="備品名" HorizontalAlignment="Left" Margin="25,25,0,0" TextWrapping="Wrap" FontSize="36"  VerticalAlignment="Top"/>
+            <TextBox Text="{Binding NewEquipName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" FontSize="24" HorizontalAlignment="Left" Margin="25,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="600"/>
 
-        <TextBlock Text="EquipmentName" HorizontalAlignment="Left" Margin="25,25,0,0" TextWrapping="Wrap"   VerticalAlignment="Top"/>
-        <TextBox Text="{Binding NewEquipName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="25,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300"/>
+            <TextBlock Text="以下は登録時に貸し出される際に入力してください。" HorizontalAlignment="Left" Margin="25,25,0,0" TextWrapping="Wrap" FontSize="44"  VerticalAlignment="Top"/>
+            
+            <TextBlock Text="借りる人" HorizontalAlignment="Left" Margin="25,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36"/>
+            <TextBox Text="{Binding PersonName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="25,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="600" FontSize="24"/>
 
-        <TextBlock Text="BorrowedMember" HorizontalAlignment="Left" Margin="25,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBox Text="{Binding PersonName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="25,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300"/>
+            <TextBlock Text="貸し出し日数" HorizontalAlignment="Left" Margin="25,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36"/>
 
-        <TextBlock Text="Remarks" HorizontalAlignment="Left" Margin="25,225,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBox Text="{Binding RemarkText,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="25,275,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300"/>
-
-        <Button Content="Cancel" Command="{Binding CancelCommand}" CommandParameter="0" HorizontalAlignment="Left" Margin="150,330,0,0" VerticalAlignment="Top" Background="{ThemeResource AppBarBackgroundThemeBrush}"/>
-        <Button Content="UpDate" Command="{Binding UpdateCommand}" CommandParameter="1" HorizontalAlignment="Left" Margin="250,330,0,0" VerticalAlignment="Top" Background="{ThemeResource AppBarBackgroundThemeBrush}"/>
-        <!--The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
+            <TextBlock Text="備考" HorizontalAlignment="Left" Margin="25,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36"/>
+            <TextBox Text="{Binding RemarkText,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="25,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="600" FontSize="24" Height="250"/>
+            <StackPanel Orientation="Horizontal" Margin="0,20">
+                <Button Content="Cancel" Command="{Binding CancelCommand}" CommandParameter="0" HorizontalAlignment="Left" Margin="320,10,0,0" VerticalAlignment="Top" Background="{ThemeResource AppBarBackgroundThemeBrush}" FontSize="36"/>
+                <Button Content="UpDate" Command="{Binding UpdateCommand}" CommandParameter="1" HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top" Background="{ThemeResource AppBarBackgroundThemeBrush}" FontSize="36"/>
+            </StackPanel>
+            <!--The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
                 Place your content here.-->
+        </StackPanel>
     </Grid>
 </Page>
