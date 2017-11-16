@@ -13,19 +13,15 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="20"/>
+            <RowDefinition Height="40"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
-            <StackPanel Orientation="Horizontal">
-                <!--<TextBox x:Name="Search" VerticalAlignment="Top" Height="20" Width="200"/>-->
-                <AutoSuggestBox PlaceholderText="Search" QueryIcon="Find" Width="200"
-                TextChanged="AutoSuggestBox_TextChanged"
-                QuerySubmitted="AutoSuggestBox_QuerySubmitted"
-                SuggestionChosen="AutoSuggestBox_SuggestionChosen"/>
-                <Button x:Name="SearchButton" Height="20" VerticalAlignment="Top"/>
-                <Button x:Name="AddButton" Height="20"/>
+
+            <StackPanel>
+                <TextBox x:Name="Search" VerticalAlignment="Top" Height="20" Width="200"/>
+                <Button Content="＋" x:Name="AddButton" Height="20" Click="AddButton_Click"/>
             </StackPanel>
         </Grid>
         <Grid Grid.Row="1">

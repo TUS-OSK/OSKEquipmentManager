@@ -77,6 +77,7 @@ namespace OSKEquipmentManager.ViewModels
                         var detail = ItemSources[SelectedIndexes];
                         return detail.EquipmentName;
                     }
+
                 }
                 else { return ""; }
             }

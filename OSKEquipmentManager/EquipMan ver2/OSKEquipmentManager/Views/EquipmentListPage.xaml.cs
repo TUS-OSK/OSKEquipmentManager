@@ -1,6 +1,8 @@
 ﻿using System;
 
 using OSKEquipmentManager.ViewModels;
+using OSKEquipmentManager.Views;
+using OSKEquipmentManager.Views.Controls;
 
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml;
@@ -24,12 +26,19 @@ namespace OSKEquipmentManager.Views
             InitializeComponent();
         }
 
+
+
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             using (var db = new EquipmentInformationContext())
             {
                 EquipmentList.ItemsSource = db.Informations.ToList();
             }
+        }
+
+        private void EquipmentList_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

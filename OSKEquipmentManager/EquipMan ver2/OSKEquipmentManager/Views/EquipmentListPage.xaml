@@ -18,32 +18,17 @@
         x:Name="ContentArea"
         Margin="12,0,12,0">
 
-        <Grid.RowDefinitions>
-            <RowDefinition x:Name="TitleRow" Height="48"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-
-        <TextBlock
-            x:Name="TitlePage"
-            x:Uid="ChartView_Title"
-            FontSize="28" FontWeight="SemiLight" TextTrimming="CharacterEllipsis" TextWrapping="NoWrap" VerticalAlignment="Center"
-            Margin="0,0,12,7" />
-
-        <Grid
-            Grid.Row="1"
-            VerticalAlignment="Top" Height="550" ScrollViewer.VerticalScrollMode="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto"
-            Background="{ThemeResource SystemControlChromeLowAcrylicWindowBrush}">
-            <ListView ScrollViewer.VerticalScrollMode="Auto"
+        <ListView ScrollViewer.VerticalScrollMode="Auto"
                       ScrollViewer.HorizontalScrollBarVisibility="Auto"
                       Name="EquipmentList"
                       ItemsSource="{Binding ItemSources, Mode=TwoWay}"
-                      SelectedIndex="{Binding SelectedIndexes, Mode=TwoWay}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding EquipmentName, Mode=TwoWay}"/>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </Grid>
+                      SelectedIndex="{Binding SelectedIndexes, Mode=TwoWay}"
+                      SelectionChanged="EquipmentList_SelectionChanged">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding EquipmentName, Mode=TwoWay}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Page>
