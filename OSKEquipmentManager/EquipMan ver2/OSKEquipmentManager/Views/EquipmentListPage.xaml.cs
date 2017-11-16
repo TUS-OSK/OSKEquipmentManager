@@ -32,7 +32,7 @@ namespace OSKEquipmentManager.Views
         {
             using (var db = new EquipmentInformationContext())
             {
-                EquipmentList.ItemsSource = db.Informations.ToList();
+                EquipmentList.ItemsSource = db.EqInfo.ToList();
             }
         }
 

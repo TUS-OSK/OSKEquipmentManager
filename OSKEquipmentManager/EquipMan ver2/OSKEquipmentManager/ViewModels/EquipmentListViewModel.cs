@@ -26,7 +26,7 @@ namespace OSKEquipmentManager.ViewModels
         //{
         //    using(var db=new EquipmentInformationContext())
         //    {
-        //        db.Informations.ToList();
+        //        db.EqInfo.ToList();
         //        RaisePropertyChanged(nameof(ItemSources));
         //    }
         //}        
@@ -39,7 +39,7 @@ namespace OSKEquipmentManager.ViewModels
         //    {
         //        using (var db = new EquipmentInformationContext())
         //        {
-        //            var souce = db.Informations.ToList();
+        //            var souce = db.EqInfo.ToList();
         //            return souce;
         //        }
         //    }

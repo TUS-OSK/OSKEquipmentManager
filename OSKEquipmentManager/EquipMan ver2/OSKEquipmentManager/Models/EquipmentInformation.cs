@@ -13,7 +13,7 @@ namespace OSKEquipmentManager.Models
 
     public class EquipmentInformationContext:DbContext
     {
-        public DbSet<EquipmentInformation> Informations { get; set; }
+        public DbSet<EquipmentInformation> EqInfo { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -34,15 +34,14 @@ namespace OSKEquipmentManager.Models
 
         public EquipmentStatus Status { get; set; }
 
-        //public DateTime ReturnPlanDate { get; set; }
+        public DateTime ReturnPlanDate { get; set; }
 
-        //public DateTime LastUpdateDate { get; set; }
+        public DateTime LastUpdateDate { get; set; }
 
         public DateTime LoanDate { get; set; }
 
         public string BorrowingMember { get; set; }
 
         public string Remarks { get; set; } = "";
-
     }
 }

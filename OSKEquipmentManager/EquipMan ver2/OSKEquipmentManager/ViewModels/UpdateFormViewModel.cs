@@ -34,6 +34,17 @@ namespace OSKEquipmentManager.ViewModels
             }
         }
 
+        private DateTime returnPlanDay;
+        public DateTime ReturnPlanDay
+        {
+            get { return this.returnPlanDay; }
+            set
+            {
+                this.returnPlanDay = value;
+                RaisePropertyChanged(nameof(ReturnPlanDay));
+            }
+        }
+
         private string remarkText;
         public string RemarkText
         {
@@ -52,7 +63,7 @@ namespace OSKEquipmentManager.ViewModels
             {
                 using (var db = new EquipmentInformationContext())
                 {
-                    var souce = db.Informations.ToList();
+                    var souce = db.EqInfo.ToList();
                     return souce;
                 }
             }
@@ -169,22 +180,25 @@ namespace OSKEquipmentManager.ViewModels
                         {
                             EquipmentName = this.NewEquipName,
                             BorrowingMember = this.PersonName,
+                            ReturnPlanDate=this.ReturnPlanDay, //
                             Remarks = this.RemarkText
                         };
 
-                        db.Informations.Add(update);
+                        db.EqInfo.Add(update);
                         db.SaveChanges();
 
                         //Addを押したらTextBoxが空になる様にした
                         this.newEquipName = "";
                         this.personName = "";
+                        this.returnPlanDay = new DateTime().AddDays(14);
                         this.remarkText = "";
                         RaisePropertyChanged(nameof(NewEquipName));
                         RaisePropertyChanged(nameof(PersonName));
+                        RaisePropertyChanged(nameof(ReturnPlanDay));
                         RaisePropertyChanged(nameof(RemarkText));
 
 
-                        this.ItemSources = db.Informations.ToList();
+                        this.ItemSources = db.EqInfo.ToList();
                     }
                 });
             }
@@ -199,6 +213,7 @@ namespace OSKEquipmentManager.ViewModels
                     //Cancelを押したらTextBoxが空になる様にした
                     this.newEquipName = "";
                     this.personName = "";
+                    this.returnPlanDay= new DateTime().AddDays(14);
                     this.remarkText = "";
                     RaisePropertyChanged(nameof(NewEquipName));
                     RaisePropertyChanged(nameof(PersonName));
@@ -244,10 +259,10 @@ namespace OSKEquipmentManager.ViewModels
 
                         if (equip != null)
                         {
-                            db.Informations.Remove(equip);
+                            db.EqInfo.Remove(equip);
                             db.SaveChanges();
 
-                            this.ItemSources = db.Informations.ToList();
+                            this.ItemSources = db.EqInfo.ToList();
                         }
                     }
                 });

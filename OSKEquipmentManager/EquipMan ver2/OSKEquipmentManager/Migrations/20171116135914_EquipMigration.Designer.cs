@@ -8,8 +8,8 @@ using OSKEquipmentManager.Models;
 namespace OSKEquipmentManager.Migrations
 {
     [DbContext(typeof(EquipmentInformationContext))]
-    [Migration("20171021043955_EqMigration")]
-    partial class EqMigration
+    [Migration("20171116135914_EquipMigration")]
+    partial class EquipMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -25,15 +25,19 @@ namespace OSKEquipmentManager.Migrations
 
                     b.Property<string>("EquipmentName");
 
+                    b.Property<DateTime>("LastUpdateDate");
+
                     b.Property<DateTime>("LoanDate");
 
                     b.Property<string>("Remarks");
+
+                    b.Property<DateTime>("ReturnPlanDate");
 
                     b.Property<int>("Status");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Informations");
+                    b.ToTable("EqInfo");
                 });
         }
     }

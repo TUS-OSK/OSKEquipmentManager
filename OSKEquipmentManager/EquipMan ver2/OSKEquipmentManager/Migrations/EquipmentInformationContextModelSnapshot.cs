@@ -24,15 +24,19 @@ namespace OSKEquipmentManager.Migrations
 
                     b.Property<string>("EquipmentName");
 
+                    b.Property<DateTime>("LastUpdateDate");
+
                     b.Property<DateTime>("LoanDate");
 
                     b.Property<string>("Remarks");
+
+                    b.Property<DateTime>("ReturnPlanDate");
 
                     b.Property<int>("Status");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Informations");
+                    b.ToTable("EqInfo");
                 });
         }
     }

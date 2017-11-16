@@ -28,7 +28,5 @@ namespace OSKEquipmentManager.Models
         {
             return new EquipmentInformation();
         }
-
-        //OSKMemberについてのメソッドも必要だ
     }
 }
