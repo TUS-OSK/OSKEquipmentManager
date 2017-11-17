@@ -10,8 +10,68 @@ using Windows.UI.Xaml.Controls;
 
 namespace OSKEquipmentManager.ViewModels
 {
+    public enum EquipReturnDate
+    {
+        Undefined,
+        一日後 = 1,
+        三日後 = 3,
+        一週間後 = 7,
+    }
+
     public class UpdateFormViewModel : ViewModelBase
     {
+        private EquipReturnDate _value;
+        public EquipReturnDate Value
+        {
+            get { return _value; }
+            set
+            {
+                if (_value == value)
+                    return;
+                if (!Enum.IsDefined(typeof(EquipReturnDate), value))
+                    throw new ArgumentOutOfRangeException();
+                RaisePropertyChanged(nameof(Is1));
+                RaisePropertyChanged(nameof(Is2));
+                RaisePropertyChanged(nameof(Is3));
+            }
+        }
+
+        public bool Is1
+        {
+            get { return Value == EquipReturnDate.一日後; }
+            set
+            {
+                if (value)
+                    Value = EquipReturnDate.一日後;
+                else
+                    Value = EquipReturnDate.Undefined;
+            }
+        }
+
+        public bool Is2
+        {
+            get { return Value == EquipReturnDate.三日後; }
+            set
+            {
+                if (value)
+                    Value = EquipReturnDate.三日後;
+                else
+                    Value = EquipReturnDate.Undefined;
+            }
+        }
+
+        public bool Is3
+        {
+            get { return Value == EquipReturnDate.一週間後; }
+            set
+            {
+                if (value)
+                    Value = EquipReturnDate.一週間後;
+                else
+                    Value = EquipReturnDate.Undefined;
+            }
+        }
+
         private string newEquipName;
         public string NewEquipName
         {
@@ -45,17 +105,6 @@ namespace OSKEquipmentManager.ViewModels
             }
         }
 
-        private int selectedLoanPeriod;
-        public int SelectedLoanPeriod
-        {
-            get { return this.selectedIndexes; }
-            set
-            {
-                this.selectedIndexes = value;
-                RaisePropertyChanged(nameof(SelectedIndexes));
-            }
-        }
-
         private List<EquipmentInformation> itemSources;
         public List<EquipmentInformation> ItemSources
         {
@@ -79,7 +128,7 @@ namespace OSKEquipmentManager.ViewModels
         {
             get
             {
-                if (ItemSources.Count>=1)
+                if (ItemSources.Count >= 1)
                 {
                     using (var db = new EquipmentInformationContext())
                     {
@@ -98,7 +147,7 @@ namespace OSKEquipmentManager.ViewModels
         {
             get
             {
-                if (ItemSources.Count>=1)
+                if (ItemSources.Count >= 1)
                 {
                     using (var db = new EquipmentInformationContext())
                     {
@@ -112,11 +161,14 @@ namespace OSKEquipmentManager.ViewModels
             }
         }
 
+        /// <summary>
+        /// 一応取得しておく「備品を借りた日」
+        /// </summary>
         public DateTime DetailEqLoanDate
         {
             get
             {
-                if (ItemSources.Count>=1)
+                if (ItemSources.Count >= 1)
                 {
                     using (var db = new EquipmentInformationContext())
                     {
@@ -130,11 +182,14 @@ namespace OSKEquipmentManager.ViewModels
             }
         }
 
+        /// <summary>
+        /// 詳細ページで表示する「借りた人」
+        /// </summary>
         public string DetailEqBorrowMem
         {
             get
             {
-                if (ItemSources.Count>=1)
+                if (ItemSources.Count >= 1)
                 {
                     using (var db = new EquipmentInformationContext())
                     {
@@ -143,16 +198,19 @@ namespace OSKEquipmentManager.ViewModels
                         var detail = ItemSources[SelectedIndexes];
                         return detail.BorrowingMember;
                     }
-            }
+                }
                 else { return ""; }
-        }
+            }
         }
 
+        /// <summary>
+        /// 詳細ページで表示する「備品に対するコメント」
+        /// </summary>
         public string DetailEqRemarks
         {
             get
             {
-                if (ItemSources.Count>=1)
+                if (ItemSources.Count >= 1)
                 {
                     using (var db = new EquipmentInformationContext())
                     {
@@ -166,6 +224,10 @@ namespace OSKEquipmentManager.ViewModels
             }
         }
 
+        /// <summary>
+        /// ListViewページ、詳細ページで表示するための
+        /// 「返却予定日」
+        /// </summary>
         public string ReturnDate
         {
             get
@@ -177,13 +239,17 @@ namespace OSKEquipmentManager.ViewModels
                         if (SelectedIndexes == -1)
                             return "-";
                         var detail = ItemSources[SelectedIndexes];
-                        return detail.LoanDate.AddDays(this.SelectedLoanPeriod).ToString();
+                        return detail.LoanDate.AddDays((int)EquipReturnDate.一日後).ToString();
                     }
                 }
                 else { return "-"; }
             }
         }
 
+        /// <summary>
+        /// ListView, 詳細ページで表示するための
+        /// 「最終更新日時」
+        /// </summary>
         public string LastUpDate
         {
             get
@@ -202,7 +268,9 @@ namespace OSKEquipmentManager.ViewModels
             }
         }
 
-
+        /// <summary>
+        /// Updateフォームにおける「登録」ボタン
+        /// </summary>
         public ICommand UpdateCommand
         {
             get
@@ -215,7 +283,7 @@ namespace OSKEquipmentManager.ViewModels
                         {
                             EquipmentName = this.NewEquipName,
                             BorrowingMember = this.PersonName,
-                            ReturnPlanDate=DateTime.Parse(this.ReturnDate),
+                            ReturnPlanDate = DateTime.Parse(this.ReturnDate),
                             Remarks = this.RemarkText
                         };
 
@@ -237,6 +305,9 @@ namespace OSKEquipmentManager.ViewModels
             }
         }
 
+        /// <summary>
+        /// Updateフォームにおけるキャンセルボタン(クリアボタン)
+        /// </summary>
         public ICommand CancelCommand
         {
             get
@@ -247,9 +318,15 @@ namespace OSKEquipmentManager.ViewModels
                     this.newEquipName = "";
                     this.personName = "";
                     this.remarkText = "";
+                    this.Is1 = false;
+                    this.Is2 = false;
+                    this.Is3 = false;
                     RaisePropertyChanged(nameof(NewEquipName));
                     RaisePropertyChanged(nameof(PersonName));
                     RaisePropertyChanged(nameof(RemarkText));
+                    RaisePropertyChanged(nameof(Is1));
+                    RaisePropertyChanged(nameof(Is2));
+                    RaisePropertyChanged(nameof(Is3));
                 });
             }
         }
@@ -271,6 +348,9 @@ namespace OSKEquipmentManager.ViewModels
             }
         }
 
+        /// <summary>
+        /// ListViewにおける「削除」ボタン
+        /// </summary>
         public ICommand DeleteCommand
         {
             get
@@ -313,6 +393,9 @@ namespace OSKEquipmentManager.ViewModels
             }
         }
 
+        /// <summary>
+        /// 編集フォームにおける「適応」ボタン
+        /// </summary>
         public ICommand EditApplyCommand
         {
             get
