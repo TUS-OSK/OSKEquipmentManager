@@ -65,7 +65,7 @@ namespace OSKEquipmentManager
 
         private ActivationService CreateActivationService()
         {
-            return new ActivationService(this, typeof(ViewModels.NavigationViewModel));
+            return new ActivationService(this, typeof(ViewModels.MainViewModel));
         }
     }
 }

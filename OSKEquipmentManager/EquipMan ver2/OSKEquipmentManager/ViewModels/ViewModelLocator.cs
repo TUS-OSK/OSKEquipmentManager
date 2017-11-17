@@ -16,7 +16,6 @@ namespace OSKEquipmentManager.ViewModels
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
 
             SimpleIoc.Default.Register(() => new NavigationServiceEx());
-            Register<NavigationViewModel, NavigationViewPage>();
             Register<MainViewModel, MainPage>();
             Register<UpdateFormViewModel, UpdateFormPage>();
             Register<EquipmentListViewModel, EquipmentListPage>();
