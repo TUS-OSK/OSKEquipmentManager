@@ -43,5 +43,7 @@ namespace OSKEquipmentManager.Models
         public string BorrowingMember { get; set; }
 
         public string Remarks { get; set; } = "";
+
+        //public string EquipComment { get; set; } = "";
     }
 }

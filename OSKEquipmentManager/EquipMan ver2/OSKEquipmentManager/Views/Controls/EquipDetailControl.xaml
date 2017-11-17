@@ -10,6 +10,7 @@
     mc:Ignorable="d"
     d:DesignHeight="1160"
     d:DesignWidth="1120">
+   
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
             <StackPanel>
 
@@ -21,6 +22,9 @@
 
                 <TextBlock Text="貸出日:" Style="{ThemeResource BodyTextBlockStyle}" FontSize="36"/>
                 <TextBlock x:Name="LoanDateText" Text="{Binding DetailEqLoanDate,Mode=TwoWay}" Style="{ThemeResource BodyTextBlockStyle}" Margin="10,15,10,25" FontSize="24"/>
+
+                <TextBlock Text="返却日:" Style="{ThemeResource BodyTextBlockStyle}" FontSize="36"/>
+                <TextBlock x:Name="ReturnDateText" Text="{Binding ReturnDate,Mode=TwoWay}" Style="{ThemeResource BodyTextBlockStyle}" Margin="10,15,10,25" FontSize="24"/>
 
                 <TextBlock Text="借りた人:" Style="{ThemeResource BodyTextBlockStyle}" FontSize="36"/>
                 <TextBlock x:Name="BrrorwingMemberText" Text="{Binding DetailEqBorrowMem}" Style="{ThemeResource BodyTextBlockStyle}" Margin="10,15,10,25" FontSize="24"/>

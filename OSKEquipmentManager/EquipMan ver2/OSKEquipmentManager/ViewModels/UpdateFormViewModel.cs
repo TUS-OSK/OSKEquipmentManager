@@ -23,13 +23,53 @@ namespace OSKEquipmentManager.ViewModels
 
     public class UpdateFormViewModel : ViewModelBase
     {
-        //UpdateFormViewModel()
-        //{
-        //    //ListVisibility = Visibility.Visible;
-        //    //UpdateVisibility = Visibility.Collapsed;
-        //    //RaisePropertyChanged(nameof(ListVisibility));
-        //    //RaisePropertyChanged(nameof(UpdateVisibility));
-        //}
+        public UpdateFormViewModel()
+        {
+            //ListVisibility = Visibility.Visible;
+            //UpdateVisibility = Visibility.Collapsed;
+            //RaisePropertyChanged(nameof(ListVisibility));
+            //RaisePropertyChanged(nameof(UpdateVisibility));
+            UpdateCommand = new DelegateCommand(param =>
+            {
+                using (var db = new EquipmentInformationContext())
+                {
+                    var update = new EquipmentInformation
+                    {
+                        EquipmentName = this.NewEquipName,
+                        BorrowingMember = this.PersonName,
+                        ReturnPlanDate = DateTime.Parse(this.ReturnDate),
+                        Remarks = this.RemarkText
+                    };
+
+                    db.EqInfo.Add(update);
+                    db.SaveChanges();
+
+                    //Addを押したらTextBoxが空になる様にした
+                    this.newEquipName = "";
+                    this.personName = "";
+                    this.remarkText = "";
+                    RaisePropertyChanged(nameof(NewEquipName));
+                    RaisePropertyChanged(nameof(PersonName));
+                    RaisePropertyChanged(nameof(RemarkText));
+                    RaisePropertyChanged(nameof(ReturnDate));
+
+
+                    this.ItemSources = db.EqInfo.ToList();
+                }
+                ListVisibility = Visibility.Visible;
+                UpdateVisibility = Visibility.Collapsed;
+                RaisePropertyChanged(nameof(ListVisibility));
+                RaisePropertyChanged(nameof(UpdateVisibility));
+            },
+                () =>
+                {
+                    if (NewEquipName != null)
+                    {
+                        return true;
+                    }
+                    else { return false; }
+                });
+        }
         private EquipReturnDate _value;
         public EquipReturnDate Value
         {
@@ -90,6 +130,7 @@ namespace OSKEquipmentManager.ViewModels
             {
                 this.newEquipName = value;
                 RaisePropertyChanged(nameof(NewEquipName));
+                UpdateCommand.RaiseCanExecuteChanged();
             }
         }
 
@@ -256,24 +297,28 @@ namespace OSKEquipmentManager.ViewModels
                         var detail = ItemSources[SelectedIndexes];
                         if (Is1 == true)
                         {
-                            return detail.LoanDate.AddDays((int)EquipReturnDate.一日後).ToString();
+                            //return detail.LoanDate.AddDays((int)EquipReturnDate.一日後).ToString();
+                            return DateTime.Today.AddDays((int)EquipReturnDate.一日後).ToString();
                         }
-                        if(Is2==true)
+                        if (Is2 == true)
                         {
-                            return detail.LoanDate.AddDays((int)EquipReturnDate.三日後).ToString();
+                            //return detail.LoanDate.AddDays((int)EquipReturnDate.三日後).ToString();
+                            return DateTime.Today.AddDays((int)EquipReturnDate.三日後).ToString();
                         }
                         if (Is3 == true)
                         {
-                            return detail.LoanDate.AddDays((int)EquipReturnDate.一週間後).ToString();
+                            //return detail.LoanDate.AddDays((int)EquipReturnDate.一週間後).ToString();
+                            return DateTime.Today.AddDays((int)EquipReturnDate.一週間後).ToString();
                         }
                         else
                         {
-                            return detail.LoanDate.AddDays(0).ToString();
+                            //return detail.LoanDate.AddDays(0).ToString();
+                            return DateTime.Today.AddDays(0).ToString();
                         }
                     }
                 }
                 else { return DateTime.Today.ToString(); }
-        }
+            }
         }
 
         /// <summary>
@@ -298,46 +343,12 @@ namespace OSKEquipmentManager.ViewModels
             }
         }
 
+
+
         /// <summary>
         /// Updateフォームにおける「登録」ボタン
         /// </summary>
-        public ICommand UpdateCommand
-        {
-            get
-            {
-                return new DelegateCommand(param =>
-                {
-                    using (var db = new EquipmentInformationContext())
-                    {
-                        var update = new EquipmentInformation
-                        {
-                            EquipmentName = this.NewEquipName,
-                            BorrowingMember = this.PersonName,
-                            ReturnPlanDate = DateTime.Parse(this.ReturnDate),
-                            Remarks = this.RemarkText
-                        };
-
-                        db.EqInfo.Add(update);
-                        db.SaveChanges();
-
-                        //Addを押したらTextBoxが空になる様にした
-                        this.newEquipName = "";
-                        this.personName = "";
-                        this.remarkText = "";
-                        RaisePropertyChanged(nameof(NewEquipName));
-                        RaisePropertyChanged(nameof(PersonName));
-                        RaisePropertyChanged(nameof(RemarkText));
-
-
-                        this.ItemSources = db.EqInfo.ToList();
-                    }
-                    ListVisibility = Visibility.Visible;
-                    UpdateVisibility = Visibility.Collapsed;
-                    RaisePropertyChanged(nameof(ListVisibility));
-                    RaisePropertyChanged(nameof(UpdateVisibility));
-                });
-            }
-        }
+        public DelegateCommand UpdateCommand { get; set; }
 
         /// <summary>
         /// Updateフォームにおけるキャンセルボタン(クリアボタン)
@@ -441,23 +452,23 @@ namespace OSKEquipmentManager.ViewModels
             }
         }
 
-    　public ICommand AddCommand
+        public ICommand AddCommand
         {
             get
             {
                 return new DelegateCommand(param =>
                 {
                     ListVisibility = Visibility.Collapsed;
-                    UpdateVisibility= Visibility.Visible;
+                    UpdateVisibility = Visibility.Visible;
                     RaisePropertyChanged(nameof(ListVisibility));
                     RaisePropertyChanged(nameof(UpdateVisibility));
                 });
-               
-                
             }
         }
 
         public Visibility ListVisibility { get; private set; }
         public Visibility UpdateVisibility { get; private set; }
+
+
     }
 }

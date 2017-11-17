@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace OSKEquipmentManager.Common
 {
-    class DelegateCommand : ICommand
+    public class DelegateCommand : ICommand
     {
         public event EventHandler CanExecuteChanged;
 
