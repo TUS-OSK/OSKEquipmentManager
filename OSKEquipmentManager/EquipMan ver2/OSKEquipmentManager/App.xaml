@@ -11,7 +11,7 @@
                 <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}"></Setter>
             </Style>
             <Style TargetType="TextBlock" BasedOn="{StaticResource Base}" x:Key="Title">
-                <Setter Property="FontSize" Value="30"></Setter>
+                <Setter Property="FontSize" Value="34"></Setter>
             </Style>
             <Style TargetType="TextBlock" BasedOn="{StaticResource Base}" x:Key="SubTitle">
                 <Setter Property="FontSize" Value="22"></Setter>

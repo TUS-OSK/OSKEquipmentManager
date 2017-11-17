@@ -6,8 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     DataContext="{Binding UpdateFormViewModel, Source={StaticResource Locator}}"
     mc:Ignorable="d"
-    Height="1800"
-    Width="1200"
+    Height="1200"
     Loaded="Page_Loaded">
     <Grid
         x:Name="ContentArea"
