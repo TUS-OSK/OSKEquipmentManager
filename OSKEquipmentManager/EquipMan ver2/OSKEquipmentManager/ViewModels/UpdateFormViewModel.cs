@@ -1,4 +1,5 @@
 ﻿using OSKEquipmentManager.Commands;
+using OSKEquipmentManager.Views;
 using System;
 using System.Windows.Input;
 using GalaSoft.MvvmLight;
@@ -394,7 +395,7 @@ namespace OSKEquipmentManager.ViewModels
         }
 
         /// <summary>
-        /// 編集フォームにおける「適応」ボタン
+        /// 編集フォームにおける「適用」ボタン
         /// </summary>
         public ICommand EditApplyCommand
         {
@@ -403,6 +404,19 @@ namespace OSKEquipmentManager.ViewModels
                 return new DelegateCommand(param =>
                 {
 
+                });
+            }
+        }
+
+    　public ICommand AddCommand
+        {
+            get
+            {
+                return new DelegateCommand(param =>
+                {
+                    MainPage main = new MainPage();
+                    
+                    main.EquipMan.Navigate(typeof(UpdateFormPage));
                 });
             }
         }

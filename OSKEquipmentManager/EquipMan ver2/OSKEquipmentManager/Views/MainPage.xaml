@@ -9,14 +9,14 @@
     mc:Ignorable="d">
     <Grid
         x:Name="ContentArea"
-        Margin="{StaticResource MediumLeftRightMargin}">
+        Margin="{StaticResource MediumLeftRightMargin}"
+        Background="{ThemeResource SystemControlChromeHighAcrylicWindowMediumBrush}">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
-        <Grid Grid.Column="0"
-                  Background="{ThemeResource SystemControlChromeLowAcrylicWindowBrush}">
+        <Grid Grid.Column="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"/>
                 <RowDefinition/>
@@ -42,9 +42,9 @@
             </Grid>
         </Grid>
         <Grid Grid.Column="1">
-            <Frame x:Name="EquipDitail">
+            <Frame x:Name="EquipMan" x:FieldModifier="public"/>
                 <viewcontrols:EquipDetailControl/>
-            </Frame>
+            
         </Grid>
         <!--The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
                 Place your content here.-->

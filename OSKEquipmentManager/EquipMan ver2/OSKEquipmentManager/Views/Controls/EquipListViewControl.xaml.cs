@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OSKEquipmentManager.Views;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,12 +23,6 @@ namespace OSKEquipmentManager.Views.Controls
         public EquipListViewControl()
         {
             this.InitializeComponent();
-        }
-
-
-        private void AddButton_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
