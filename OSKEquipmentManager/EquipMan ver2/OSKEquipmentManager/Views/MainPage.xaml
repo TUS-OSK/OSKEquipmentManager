@@ -13,32 +13,35 @@
         Background="{ThemeResource SystemControlChromeHighAcrylicWindowMediumBrush }">
 
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
             <ColumnDefinition/>
-            <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="350"/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <Grid Grid.Row="0">
-                <Frame>
-                    <viewcontrols:EquipListViewControl Loaded="EquipListViewControl_Loaded_1"/>
-                </Frame>
-            </Grid>
-            <Grid Grid.Row="1">
-                <ListView ScrollViewer.VerticalScrollMode="Auto"
-                      ScrollViewer.HorizontalScrollBarVisibility="Auto"
-                      Name="EquipmentList"
-                      ItemsSource="{Binding ItemSources, Mode=TwoWay}"
-                      SelectedIndex="{Binding SelectedIndexes, Mode=TwoWay}"
-                      SelectionChanged="EquipmentList_SelectionChanged">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding EquipmentName, Mode=TwoWay}" TextWrapping="NoWrap"/>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+            <Grid>
+                <StackPanel>
+                    <Grid Margin="10,15,0,15" Height="80">
+                        <TextBlock Margin="0,20,0,0" Style="{StaticResource SubTitle}" Text="備品"/>
+                        <AppBarButton HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource AppBarButtonRevealStyle}" Command="{Binding AddCommand}">
+                            <SymbolIcon Symbol="Add"></SymbolIcon>
+                        </AppBarButton>
+                    </Grid>
+                    <!--StackPanel Orientation="Horizontal">
+                        <Button Content="削除" Command="{Binding DeleteCommand}" VerticalAlignment="Top" HorizontalAlignment="Right" Height="40" FontSize="20"/>
+                        <Button Content="追加" Command="{Binding AddCommand}" VerticalAlignment="Top" HorizontalAlignment="Right" Height="40" FontSize="20"/>
+                    </StackPanel-->
+                    <ListView ScrollViewer.VerticalScrollMode="Auto"
+                              ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                              Name="EquipmentList"
+                              MaxHeight="800"
+                              ItemsSource="{Binding ItemSources, Mode=TwoWay}"
+                              SelectedIndex="{Binding SelectedIndexes, Mode=TwoWay}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding EquipmentName, Mode=TwoWay}" TextWrapping="NoWrap"/>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackPanel>
             </Grid>
         </Grid>
         <Grid Grid.Column="1">
