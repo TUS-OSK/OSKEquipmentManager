@@ -7,6 +7,24 @@
 
     <Application.Resources>
         <ResourceDictionary>
+            <Style TargetType="TextBlock" x:Key="Base">
+                <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}"></Setter>
+            </Style>
+            <Style TargetType="TextBlock" BasedOn="{StaticResource Base}" x:Key="Title">
+                <Setter Property="FontSize" Value="30"></Setter>
+            </Style>
+            <Style TargetType="TextBlock" BasedOn="{StaticResource Base}" x:Key="SubTitle">
+                <Setter Property="FontSize" Value="22"></Setter>
+            </Style>
+            <Style TargetType="TextBlock" BasedOn="{StaticResource Base}" x:Key="NormalText">
+                <Setter Property="FontSize" Value="20"></Setter>
+            </Style>
+            <Style TargetType="Button" BasedOn="{StaticResource ButtonRevealStyle}" x:Key="NormalButton">
+                <Setter Property="Background" Value="Transparent"></Setter>
+                <Setter Property="BorderBrush" Value="Transparent"></Setter>
+                <Setter Property="Height" Value="50"></Setter>
+                <Setter Property="UseSystemFocusVisuals" Value="True" />
+            </Style>
             <vms:ViewModelLocator x:Key="Locator" />
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Styles/TextBlock.xaml"/>

@@ -48,7 +48,9 @@
                 <viewcontrols:EquipDetailControl/>
             </Frame>
             <Frame Visibility="{Binding UpdateVisibility}">
-                <views:UpdateFormPage/>
+                <ScrollViewer>
+                    <views:UpdateFormPage/>
+                </ScrollViewer>
             </Frame>
         </Grid>
         <!--The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
