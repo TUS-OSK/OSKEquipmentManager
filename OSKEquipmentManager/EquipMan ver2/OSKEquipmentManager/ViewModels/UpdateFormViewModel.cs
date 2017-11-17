@@ -40,8 +40,8 @@ namespace OSKEquipmentManager.ViewModels
                     {
                         EquipmentName = this.NewEquipName,
                         BorrowingMember = this.PersonName,
-                        ReturnPlanDate = DateTime.Parse(this.ReturnDate),
-                        Status=EquipmentStatus.貸出中,
+                        ReturnPlanDate = this.ReturnDate,
+                        //Status=EquipmentStatus.貸出中,
                         Remarks = this.RemarkText
                     };
 
@@ -76,6 +76,8 @@ namespace OSKEquipmentManager.ViewModels
                     else { return false; }
                 });
         }
+
+
         private EquipReturnDate _value;
         public EquipReturnDate Value
         {
@@ -304,7 +306,7 @@ namespace OSKEquipmentManager.ViewModels
         /// ListViewページ、詳細ページで表示するための
         /// 「返却予定日」
         /// </summary>
-        public string ReturnDate
+        public DateTime ReturnDate
         {
             get
             {
@@ -313,32 +315,32 @@ namespace OSKEquipmentManager.ViewModels
                     using (var db = new EquipmentInformationContext())
                     {
                         if (SelectedIndexes == -1)
-                            return DateTime.Today.ToString();
+                            return DateTime.Today;
 
                         var detail = ItemSources[SelectedIndexes];
                         if (Is1 == true)
                         {
                             //return detail.LoanDate.AddDays((int)EquipReturnDate.一日後).ToString();
-                            return DateTime.Today.AddDays((int)EquipReturnDate.一日後).ToString();
+                            return DateTime.Today.AddDays((int)EquipReturnDate.一日後);
                         }
                         if (Is2 == true)
                         {
                             //return detail.LoanDate.AddDays((int)EquipReturnDate.三日後).ToString();
-                            return DateTime.Today.AddDays((int)EquipReturnDate.三日後).ToString();
+                            return DateTime.Today.AddDays((int)EquipReturnDate.三日後);
                         }
                         if (Is3 == true)
                         {
                             //return detail.LoanDate.AddDays((int)EquipReturnDate.一週間後).ToString();
-                            return DateTime.Today.AddDays((int)EquipReturnDate.一週間後).ToString();
+                            return DateTime.Today.AddDays((int)EquipReturnDate.一週間後);
                         }
                         else
                         {
                             //return detail.LoanDate.AddDays(0).ToString();
-                            return DateTime.Today.AddDays(0).ToString();
+                            return DateTime.Today.AddDays(0);
                         }
                     }
                 }
-                else { return DateTime.Today.ToString(); }
+                else { return DateTime.Today; }
             }
         }
 
@@ -460,9 +462,46 @@ namespace OSKEquipmentManager.ViewModels
         }
 
         /// <summary>
-        /// 編集フォームにおける「適用」ボタン
+        /// 「借りる」フォームにおいて、フォームの記載事項を
+        /// 適応するボタン
         /// </summary>
         public ICommand ApplyCommand
+        {
+            get
+            {
+                return new DelegateCommand(param =>
+                {
+                    using (var db = new EquipmentInformationContext())
+                    {
+                        if (ItemSources.Count == 0)
+                        {
+                            if (SelectedIndexes == 0) return;
+                        }
+                        if (SelectedIndexes == -1) return;
+
+                        var equip = ItemSources[SelectedIndexes];
+                        equip.BorrowingMember = this.PersonName;
+                        equip.ReturnPlanDate = this.ReturnDate;
+                        equip.Status = EquipmentStatus.貸出中;
+                        equip.Remarks = this.RemarkText;
+
+                        db.EqInfo.Update(equip);
+                        if (equip != null)
+                        {
+                            db.SaveChanges();
+                            this.ItemSources = db.EqInfo.ToList();
+                        }
+                    }
+                });
+            }
+        }
+
+        /// <summary>
+        /// 編集フォームにおける「適用」ボタン
+        /// </summary>
+ 
+
+        public ICommand ReturnCommand
         {
             get
             {
@@ -516,6 +555,7 @@ namespace OSKEquipmentManager.ViewModels
         public Visibility ListVisibility { get; private set; }
         public Visibility UpdateVisibility { get; private set; }
         public Visibility BorrowingVisibility { get; private set; }
-
+        public Visibility BorrowButtonVisibility { get; set; }
+        public Visibility ReturnButtonVisibility { get; set; }
     }
 }

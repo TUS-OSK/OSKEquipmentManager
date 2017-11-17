@@ -43,7 +43,7 @@
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="借用人" Style="{StaticResource SubTitle}"/>
-                        <TextBlock Grid.Column="1" x:Name="BrrorwingMemberText" Text="{Binding DetailEqBorrowMem}" Style="{StaticResource NormalText}"/>
+                        <TextBlock Grid.Column="1" x:Name="BrrorwingMemberText" Text="{Binding DetailEqBorrowMem,Mode=TwoWay}" Style="{StaticResource NormalText}"/>
 
                         <TextBlock Grid.Row="1" Text="貸出日時" Style="{StaticResource SubTitle}"/>
                         <TextBlock Grid.Row="1" Grid.Column="1" x:Name="LoanDateText" Text="{Binding DetailEqLoanDate,Mode=TwoWay}"  Style="{StaticResource NormalText}"/>
