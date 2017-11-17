@@ -491,6 +491,11 @@ namespace OSKEquipmentManager.ViewModels
                             db.SaveChanges();
                             this.ItemSources = db.EqInfo.ToList();
                         }
+                        this.PersonName = "";
+                        this.Is1 = true;
+                        this.Is2 = false;
+                        this.Is3 = false;
+                        this.RemarkText = "";
                     }
                 });
             }
