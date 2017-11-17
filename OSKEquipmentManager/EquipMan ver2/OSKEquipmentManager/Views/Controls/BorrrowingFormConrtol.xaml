@@ -20,9 +20,9 @@
 
             <TextBlock Text="返却日" Style="{StaticResource SubTitle}" Margin="0,15,0,0"/>
             <StackPanel Orientation="Horizontal" Margin="0,20" x:Name="RadioButtonGroup1">
-                <RadioButton Tag="1" Content="1日後" IsChecked="{Binding Is1}"  Margin="5,0,0,0"/>
-                <RadioButton Tag="2" Content="3日後" IsChecked="{Binding Is2}"  Margin="5,0,0,0"/>
-                <RadioButton Tag="3" Content="1週間" IsChecked="{Binding Is3}"  Margin="5,0,0,0"/>
+                <RadioButton Tag="1" Content="1日後" IsChecked="{Binding Is1,Mode=TwoWay}"  Margin="5,0,0,0"/>
+                <RadioButton Tag="2" Content="3日後" IsChecked="{Binding Is2,Mode=TwoWay}"  Margin="5,0,0,0"/>
+                <RadioButton Tag="3" Content="1週間" IsChecked="{Binding Is3,Mode=TwoWay}"  Margin="5,0,0,0"/>
             </StackPanel>
 
             <TextBlock Style="{StaticResource SubTitle}" Text="備考"  Margin="0,15,0,0"/>

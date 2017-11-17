@@ -86,8 +86,7 @@ namespace OSKEquipmentManager.ViewModels
             {
                 if (_value == value)
                     return;
-                if (!Enum.IsDefined(typeof(EquipReturnDate), value))
-                    throw new ArgumentOutOfRangeException();
+                _value = value;
                 RaisePropertyChanged(nameof(Is1));
                 RaisePropertyChanged(nameof(Is2));
                 RaisePropertyChanged(nameof(Is3));
@@ -302,6 +301,40 @@ namespace OSKEquipmentManager.ViewModels
             }
         }
 
+        public DateTime calcReturnDate()
+        {
+            if (ItemSources.Count >= 1)
+            {
+                using (var db = new EquipmentInformationContext())
+                {
+                    if (SelectedIndexes == -1)
+                        return DateTime.Today;
+
+                    var detail = ItemSources[SelectedIndexes];
+                    if (Is1 == true)
+                    {
+                        //return detail.LoanDate.AddDays((int)EquipReturnDate.一日後).ToString();
+                        return DateTime.Today.AddDays((int)EquipReturnDate.一日後);
+                    }
+                    if (Is2 == true)
+                    {
+                        //return detail.LoanDate.AddDays((int)EquipReturnDate.三日後).ToString();
+                        return DateTime.Today.AddDays(3);
+                    }
+                    if (Is3 == true)
+                    {
+                        //return detail.LoanDate.AddDays((int)EquipReturnDate.一週間後).ToString();
+                        return DateTime.Today.AddDays((int)EquipReturnDate.一週間後);
+                    }
+                    else
+                    {
+                        //return detail.LoanDate.AddDays(0).ToString();
+                        return DateTime.Today.AddDays(0);
+                    }
+                }
+            }
+            return DateTime.Today.AddDays(0);
+        }
         /// <summary>
         /// ListViewページ、詳細ページで表示するための
         /// 「返却予定日」
@@ -315,32 +348,12 @@ namespace OSKEquipmentManager.ViewModels
                     using (var db = new EquipmentInformationContext())
                     {
                         if (SelectedIndexes == -1)
-                            return DateTime.Today;
-
+                            return new DateTime { };
                         var detail = ItemSources[SelectedIndexes];
-                        if (Is1 == true)
-                        {
-                            //return detail.LoanDate.AddDays((int)EquipReturnDate.一日後).ToString();
-                            return DateTime.Today.AddDays((int)EquipReturnDate.一日後);
-                        }
-                        if (Is2 == true)
-                        {
-                            //return detail.LoanDate.AddDays((int)EquipReturnDate.三日後).ToString();
-                            return DateTime.Today.AddDays((int)EquipReturnDate.三日後);
-                        }
-                        if (Is3 == true)
-                        {
-                            //return detail.LoanDate.AddDays((int)EquipReturnDate.一週間後).ToString();
-                            return DateTime.Today.AddDays((int)EquipReturnDate.一週間後);
-                        }
-                        else
-                        {
-                            //return detail.LoanDate.AddDays(0).ToString();
-                            return DateTime.Today.AddDays(0);
-                        }
+                        return detail.ReturnPlanDate;
                     }
                 }
-                else { return DateTime.Today; }
+                else { return new DateTime(); }
             }
         }
 
@@ -481,7 +494,7 @@ namespace OSKEquipmentManager.ViewModels
 
                         var equip = ItemSources[SelectedIndexes];
                         equip.BorrowingMember = this.PersonName;
-                        equip.ReturnPlanDate = this.ReturnDate;
+                        equip.ReturnPlanDate = calcReturnDate();
                         equip.Status = EquipmentStatus.貸出中;
                         equip.Remarks = this.RemarkText;
 
@@ -497,22 +510,40 @@ namespace OSKEquipmentManager.ViewModels
                         this.Is3 = false;
                         this.RemarkText = "";
                     }
+                    //BorrowButtonVisibility = Visibility.Visible;
+                    //ReturnButtonVisibility = Visibility.Collapsed;
                 });
             }
         }
 
-        /// <summary>
-        /// 編集フォームにおける「適用」ボタン
-        /// </summary>
- 
-
+        
         public ICommand ReturnCommand
         {
             get
             {
                 return new DelegateCommand(param =>
                 {
+                    using (var db = new EquipmentInformationContext())
+                    {
+                        if (ItemSources.Count == 0)
+                        {
+                            if (SelectedIndexes == 0) return;
+                        }
+                        if (SelectedIndexes == -1) return;
 
+                        var equip = ItemSources[SelectedIndexes];
+                        equip.BorrowingMember = "";
+                        equip.ReturnPlanDate = DateTime.Today;
+                        equip.Status = EquipmentStatus.利用可能;
+                        //equip.Remarks = this.RemarkText;
+
+                        db.EqInfo.Update(equip);
+                        db.SaveChanges();
+                        this.ItemSources = db.EqInfo.ToList();
+                    }
+
+                    //BorrowButtonVisibility = Visibility.Collapsed;
+                    //ReturnButtonVisibility = Visibility.Visible;
                 });
             }
         }
