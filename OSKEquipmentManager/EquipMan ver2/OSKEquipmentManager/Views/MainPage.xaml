@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:views="using:OSKEquipmentManager.Views"
     DataContext="{Binding UpdateFormViewModel, Source={StaticResource Locator}}"
     xmlns:viewcontrols="using:OSKEquipmentManager.Views.Controls"
     mc:Ignorable="d">
@@ -18,7 +19,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="40"/>
+                <RowDefinition Height="350"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
@@ -42,9 +43,13 @@
             </Grid>
         </Grid>
         <Grid Grid.Column="1">
-            <Frame x:Name="EquipMan" x:FieldModifier="public"/>
+
+            <Frame  Visibility="{Binding ListVisibility}">
                 <viewcontrols:EquipDetailControl/>
-            
+            </Frame>
+            <Frame Visibility="{Binding UpdateVisibility}">
+                <views:UpdateFormPage/>
+            </Frame>
         </Grid>
         <!--The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
                 Place your content here.-->

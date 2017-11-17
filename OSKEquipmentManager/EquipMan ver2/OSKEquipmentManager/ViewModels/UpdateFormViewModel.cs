@@ -8,6 +8,8 @@ using OSKEquipmentManager.Models;
 using System.Linq;
 using System.Collections.Generic;
 using Windows.UI.Xaml.Controls;
+using OSKEquipmentManager.Views.Controls;
+using Windows.UI.Xaml;
 
 namespace OSKEquipmentManager.ViewModels
 {
@@ -21,6 +23,13 @@ namespace OSKEquipmentManager.ViewModels
 
     public class UpdateFormViewModel : ViewModelBase
     {
+        //UpdateFormViewModel()
+        //{
+        //    //ListVisibility = Visibility.Visible;
+        //    //UpdateVisibility = Visibility.Collapsed;
+        //    //RaisePropertyChanged(nameof(ListVisibility));
+        //    //RaisePropertyChanged(nameof(UpdateVisibility));
+        //}
         private EquipReturnDate _value;
         public EquipReturnDate Value
         {
@@ -129,6 +138,10 @@ namespace OSKEquipmentManager.ViewModels
         {
             get
             {
+                ListVisibility = Visibility.Visible;
+                UpdateVisibility = Visibility.Collapsed;
+                RaisePropertyChanged(nameof(ListVisibility));
+                RaisePropertyChanged(nameof(UpdateVisibility));
                 if (ItemSources.Count >= 1)
                 {
                     using (var db = new EquipmentInformationContext())
@@ -414,11 +427,17 @@ namespace OSKEquipmentManager.ViewModels
             {
                 return new DelegateCommand(param =>
                 {
-                    MainPage main = new MainPage();
-                    
-                    main.EquipMan.Navigate(typeof(UpdateFormPage));
+                    ListVisibility = Visibility.Collapsed;
+                    UpdateVisibility= Visibility.Visible;
+                    RaisePropertyChanged(nameof(ListVisibility));
+                    RaisePropertyChanged(nameof(UpdateVisibility));
                 });
+               
+                
             }
         }
+
+        public Visibility ListVisibility { get; private set; }
+        public Visibility UpdateVisibility { get; private set; }
     }
 }
