@@ -13,23 +13,21 @@
 
     <Grid>
         <StackPanel Margin="25,10,25,0">
-            <Grid>
+            <Grid Height="50">
                 <TextBlock x:Name="EquipmentNameText" Style="{StaticResource Title}" Text="{Binding DetailEqNameText}"/>
                 <AppBarButton Style="{StaticResource AppBarButtonRevealStyle}" Command="{Binding DeleteCommand}" HorizontalAlignment="Right">
                     <SymbolIcon Symbol="Delete"/>
                 </AppBarButton>
             </Grid>
 
-            <StackPanel Orientation="Horizontal" Margin="0,50,0,5">
-                <TextBlock Text="{Binding DetailEqStatusText,Mode=TwoWay}" Style="{StaticResource SubTitle}" />
-            </StackPanel>
+            <TextBlock Text="{Binding DetailEqStatusText,Mode=TwoWay}" Margin="0,40,0,5" Style="{StaticResource SubTitle}" />
 
-              <AppBarButton Style="{StaticResource AppBarButtonRevealStyle}" Command="{Binding BorrowCommand}" Visibility="{Binding BorrowButtonVisibility}">
-                    借りる
-                </AppBarButton>
-                <AppBarButton Style="{StaticResource AppBarButtonRevealStyle}" Command="{Binding ReturnCommand}" Visibility="{Binding ReturnButtonVisibility}">
-                    返却
-                </AppBarButton>
+            <AppBarButton Style="{StaticResource AppBarButtonRevealStyle}" Command="{Binding BorrowCommand}" Visibility="{Binding BorrowButtonVisibility}">
+                借りる
+            </AppBarButton>
+            <AppBarButton Style="{StaticResource AppBarButtonRevealStyle}" Command="{Binding ReturnCommand}" Visibility="{Binding ReturnButtonVisibility}">
+                返却
+            </AppBarButton>
 
             <Grid Height="180" Margin="0,15,0,0" Visibility="{Binding ReturnButtonVisibility}">
                 <Rectangle Fill="{ThemeResource TextControlBackground}" RadiusX="5" RadiusY="5"></Rectangle>
@@ -43,7 +41,7 @@
                         <ColumnDefinition Width="180"></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Text="借用人" Style="{StaticResource SubTitle}"/>
+                    <TextBlock Text="借用責任者" Style="{StaticResource SubTitle}"/>
                     <TextBlock Grid.Column="1" x:Name="BrrorwingMemberText" Text="{Binding DetailEqBorrowMem}" Style="{StaticResource NormalText}"/>
 
                     <TextBlock Grid.Row="1" Text="貸出日時" Style="{StaticResource SubTitle}"/>

@@ -7,30 +7,29 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     DataContext="{Binding UpdateFormViewModel, Source={StaticResource Locator}}"
-    d:DesignHeight="300"
-    d:DesignWidth="400">
+    d:DesignHeight="1000"
+    d:DesignWidth="800">
 
-    <Grid Margin="2,0,-2,0">
-        <StackPanel>
-            <TextBlock Style="{StaticResource Title}" Text="貸出しフォーム" HorizontalAlignment="Left" Margin="25,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-            <TextBlock Text="{Binding NewEquipName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" FontSize="24" HorizontalAlignment="Left" Margin="25,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="600"/>
+    <Grid>
+        <StackPanel Margin="25,10,25,0">
+            <StackPanel Orientation="Horizontal" Height="50">
+                <TextBlock Style="{StaticResource Title}" Text="{Binding DetailEqNameText}"/>
+            </StackPanel>
+            <TextBlock Text="借用責任者" Style="{StaticResource SubTitle}" Margin="0,40,0,0"/>
+            <TextBox BorderThickness="0" Text="{Binding PersonName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Margin="0,15,0,0"/>
 
-
-            <TextBlock Text="Your Name" HorizontalAlignment="Left" Margin="25,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36"/>
-            <TextBox Text="{Binding PersonName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="25,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="600" FontSize="24"/>
-
-            <TextBlock Text="返却日" HorizontalAlignment="Left" Margin="25,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36"/>
+            <TextBlock Text="返却日" Style="{StaticResource SubTitle}" Margin="0,15,0,0"/>
             <StackPanel Orientation="Horizontal" Margin="0,20" x:Name="RadioButtonGroup1">
-                <RadioButton Tag="1" Content="1日後" IsChecked="{Binding Is1}" FontSize="24" Margin="25,0,0,0"/>
-                <RadioButton Tag="2" Content="3日後" IsChecked="{Binding Is2}" FontSize="24" Margin="25,0,0,0"/>
-                <RadioButton Tag="3" Content="1週間" IsChecked="{Binding Is3}" FontSize="24" Margin="25,0,0,0"/>
+                <RadioButton Tag="1" Content="1日後" IsChecked="{Binding Is1}"  Margin="5,0,0,0"/>
+                <RadioButton Tag="2" Content="3日後" IsChecked="{Binding Is2}"  Margin="5,0,0,0"/>
+                <RadioButton Tag="3" Content="1週間" IsChecked="{Binding Is3}"  Margin="5,0,0,0"/>
             </StackPanel>
 
-            <TextBlock Style="{StaticResource SubTitle}" Text="備考" HorizontalAlignment="Left" Margin="25,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-            <TextBox BorderThickness="0" Text="{Binding RemarkText,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="25,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="600" FontSize="24" Height="250"/>
-            <StackPanel Orientation="Horizontal" Margin="450,20,0,0">
-                <Button Style="{StaticResource NormalButton}" Content="キャンセル" Command="{Binding CancelCommand}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <Button Style="{StaticResource NormalButton}" Content="適用(この備品を借りる)" Command="{Binding ApplyCommand}" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top"/>
+            <TextBlock Style="{StaticResource SubTitle}" Text="備考"  Margin="0,15,0,0"/>
+            <TextBox BorderThickness="0" Text="{Binding RemarkText,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Margin="0,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="120"  FontSize="24"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
+                <AppBarButton Style="{StaticResource AppBarButtonRevealStyle}" Content="キャンセル" Command="{Binding CancelCommand}" HorizontalAlignment="Left"/>
+                <AppBarButton Style="{StaticResource AppBarButtonRevealStyle}" Content="借りる" Command="{Binding ApplyCommand}" HorizontalAlignment="Left" Margin="30,0,0,0"/>
             </StackPanel>
         </StackPanel>
     </Grid>
