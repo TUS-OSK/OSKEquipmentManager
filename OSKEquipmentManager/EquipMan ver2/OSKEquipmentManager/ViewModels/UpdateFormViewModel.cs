@@ -251,13 +251,29 @@ namespace OSKEquipmentManager.ViewModels
                     using (var db = new EquipmentInformationContext())
                     {
                         if (SelectedIndexes == -1)
-                            return "-";
+                            return DateTime.Today.ToString();
+
                         var detail = ItemSources[SelectedIndexes];
-                        return detail.LoanDate.AddDays((int)EquipReturnDate.一日後).ToString();
+                        if (Is1 == true)
+                        {
+                            return detail.LoanDate.AddDays((int)EquipReturnDate.一日後).ToString();
+                        }
+                        if(Is2==true)
+                        {
+                            return detail.LoanDate.AddDays((int)EquipReturnDate.三日後).ToString();
+                        }
+                        if (Is3 == true)
+                        {
+                            return detail.LoanDate.AddDays((int)EquipReturnDate.一週間後).ToString();
+                        }
+                        else
+                        {
+                            return detail.LoanDate.AddDays(0).ToString();
+                        }
                     }
                 }
-                else { return "-"; }
-            }
+                else { return DateTime.Today.ToString(); }
+        }
         }
 
         /// <summary>
@@ -315,6 +331,10 @@ namespace OSKEquipmentManager.ViewModels
 
                         this.ItemSources = db.EqInfo.ToList();
                     }
+                    ListVisibility = Visibility.Visible;
+                    UpdateVisibility = Visibility.Collapsed;
+                    RaisePropertyChanged(nameof(ListVisibility));
+                    RaisePropertyChanged(nameof(UpdateVisibility));
                 });
             }
         }

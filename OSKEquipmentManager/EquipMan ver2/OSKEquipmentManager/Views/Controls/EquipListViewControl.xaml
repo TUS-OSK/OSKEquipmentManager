@@ -8,8 +8,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     DataContext="{Binding UpdateFormViewModel, Source={StaticResource Locator}}"
-    d:DesignHeight="1120"
-    d:DesignWidth="1600">
+    d:DesignHeight="350"
+    d:DesignWidth="480">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -27,9 +27,9 @@
             </StackPanel>
         </Grid>
         <Grid Grid.Row="1">
-            <Frame>
+            <!--<Frame>
                 <views:EquipmentListPage/>
-            </Frame>
+            </Frame>-->
             
         </Grid>
     </Grid>
