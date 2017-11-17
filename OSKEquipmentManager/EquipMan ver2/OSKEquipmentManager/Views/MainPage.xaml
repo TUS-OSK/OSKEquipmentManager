@@ -51,6 +51,11 @@
                     <views:UpdateFormPage/>
                 </ScrollViewer>
             </Frame>
+            <Frame Visibility="{Binding BorrowingVisibility}">
+                <ScrollViewer>
+                    <viewcontrols:BorrrowingFormConrtol/>
+                </ScrollViewer>
+            </Frame>
         </Grid>
         <!--The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
                 Place your content here.-->

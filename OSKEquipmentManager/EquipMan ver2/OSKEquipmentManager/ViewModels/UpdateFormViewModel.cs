@@ -25,10 +25,13 @@ namespace OSKEquipmentManager.ViewModels
     {
         public UpdateFormViewModel()
         {
-            //ListVisibility = Visibility.Visible;
-            //UpdateVisibility = Visibility.Collapsed;
-            //RaisePropertyChanged(nameof(ListVisibility));
-            //RaisePropertyChanged(nameof(UpdateVisibility));
+            ListVisibility = Visibility.Visible;
+            UpdateVisibility = Visibility.Collapsed;
+            BorrowingVisibility = Visibility.Collapsed;
+            RaisePropertyChanged(nameof(ListVisibility));
+            RaisePropertyChanged(nameof(UpdateVisibility));
+            RaisePropertyChanged(nameof(BorrowingVisibility));
+
             UpdateCommand = new DelegateCommand(param =>
             {
                 using (var db = new EquipmentInformationContext())
@@ -38,6 +41,7 @@ namespace OSKEquipmentManager.ViewModels
                         EquipmentName = this.NewEquipName,
                         BorrowingMember = this.PersonName,
                         ReturnPlanDate = DateTime.Parse(this.ReturnDate),
+                        Status=EquipmentStatus.貸出中,
                         Remarks = this.RemarkText
                     };
 
@@ -51,15 +55,17 @@ namespace OSKEquipmentManager.ViewModels
                     RaisePropertyChanged(nameof(NewEquipName));
                     RaisePropertyChanged(nameof(PersonName));
                     RaisePropertyChanged(nameof(RemarkText));
+                    RaisePropertyChanged(nameof(EqStatus));
                     RaisePropertyChanged(nameof(ReturnDate));
-
 
                     this.ItemSources = db.EqInfo.ToList();
                 }
-                ListVisibility = Visibility.Visible;
-                UpdateVisibility = Visibility.Collapsed;
-                RaisePropertyChanged(nameof(ListVisibility));
-                RaisePropertyChanged(nameof(UpdateVisibility));
+                //ListVisibility = Visibility.Visible;
+                //UpdateVisibility = Visibility.Collapsed;
+                //BorrowingVisibility = Visibility.Collapsed;
+                //RaisePropertyChanged(nameof(ListVisibility));
+                //RaisePropertyChanged(nameof(UpdateVisibility));
+                //RaisePropertyChanged(nameof(BorrowingVisibility));
             },
                 () =>
                 {
@@ -145,6 +151,17 @@ namespace OSKEquipmentManager.ViewModels
             }
         }
 
+        private string eqStatus;
+        public string EqStatus
+        {
+            get { return this.eqStatus; }
+            set
+            {
+                this.eqStatus = value;
+                RaisePropertyChanged(nameof(EqStatus));
+            }
+        }
+
         private string remarkText;
         public string RemarkText
         {
@@ -181,8 +198,10 @@ namespace OSKEquipmentManager.ViewModels
             {
                 ListVisibility = Visibility.Visible;
                 UpdateVisibility = Visibility.Collapsed;
+                BorrowingVisibility = Visibility.Collapsed;
                 RaisePropertyChanged(nameof(ListVisibility));
                 RaisePropertyChanged(nameof(UpdateVisibility));
+                RaisePropertyChanged(nameof(BorrowingVisibility));
                 if (ItemSources.Count >= 1)
                 {
                     using (var db = new EquipmentInformationContext())
@@ -215,6 +234,8 @@ namespace OSKEquipmentManager.ViewModels
                 else { return EquipmentStatus.利用可能; }
             }
         }
+
+      
 
         /// <summary>
         /// 一応取得しておく「備品を借りた日」
@@ -441,7 +462,7 @@ namespace OSKEquipmentManager.ViewModels
         /// <summary>
         /// 編集フォームにおける「適用」ボタン
         /// </summary>
-        public ICommand EditApplyCommand
+        public ICommand ApplyCommand
         {
             get
             {
@@ -452,6 +473,10 @@ namespace OSKEquipmentManager.ViewModels
             }
         }
 
+        /// <summary>
+        /// ListViewにおける「Addボタン」
+        /// 備品の登録フォームを表示する
+        /// </summary>
         public ICommand AddCommand
         {
             get
@@ -459,8 +484,30 @@ namespace OSKEquipmentManager.ViewModels
                 return new DelegateCommand(param =>
                 {
                     ListVisibility = Visibility.Collapsed;
+                    BorrowingVisibility = Visibility.Collapsed;
                     UpdateVisibility = Visibility.Visible;
                     RaisePropertyChanged(nameof(ListVisibility));
+                    RaisePropertyChanged(nameof(BorrowingVisibility));
+                    RaisePropertyChanged(nameof(UpdateVisibility));
+                });
+            }
+        }
+
+        /// <summary>
+        /// 備品詳細ページにおける「借りるボタン」
+        /// 「Borrowingフォーム」を表示する
+        /// </summary>
+        public ICommand BorrowCommand
+        {
+            get
+            {
+                return new DelegateCommand(param =>
+                {
+                    ListVisibility = Visibility.Collapsed;
+                    BorrowingVisibility = Visibility.Visible;
+                    UpdateVisibility = Visibility.Collapsed;
+                    RaisePropertyChanged(nameof(ListVisibility));
+                    RaisePropertyChanged(nameof(BorrowingVisibility));
                     RaisePropertyChanged(nameof(UpdateVisibility));
                 });
             }
@@ -468,7 +515,7 @@ namespace OSKEquipmentManager.ViewModels
 
         public Visibility ListVisibility { get; private set; }
         public Visibility UpdateVisibility { get; private set; }
-
+        public Visibility BorrowingVisibility { get; private set; }
 
     }
 }

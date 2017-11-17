@@ -142,6 +142,9 @@
     <Compile Include="ViewModels\NavigationViewModel.cs" />
     <Compile Include="ViewModels\UpdateFormViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
+    <Compile Include="Views\Controls\BorrrowingFormConrtol.xaml.cs">
+      <DependentUpon>BorrrowingFormConrtol.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Controls\EquipDetailControl.xaml.cs">
       <DependentUpon>EquipDetailControl.xaml</DependentUpon>
     </Compile>
@@ -187,6 +190,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Views\Controls\BorrrowingFormConrtol.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Controls\EquipDetailControl.xaml">
       <SubType>Designer</SubType>
