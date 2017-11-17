@@ -2,7 +2,9 @@
 
 using OSKEquipmentManager.ViewModels;
 using OSKEquipmentManager.Views.Controls;
-
+using Windows.ApplicationModel.Core;
+using Windows.UI;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml.Controls;
 
 namespace OSKEquipmentManager.Views
@@ -17,20 +19,11 @@ namespace OSKEquipmentManager.Views
         public MainPage()
         {
             InitializeComponent();
-        }
 
-        private void EquipmentList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-        }
-
-        private void EquipListViewControl_Loaded(object sender, Windows.UI.Xaml.RoutedEventArgs e)
-        {
-
-        }
-
-        private void EquipListViewControl_Loaded_1(object sender, Windows.UI.Xaml.RoutedEventArgs e)
-        {
-
+            CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = true;
+            ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
+            titleBar.ButtonBackgroundColor = Colors.Transparent;
+            titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
         }
     }
 }
