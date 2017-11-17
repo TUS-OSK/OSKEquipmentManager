@@ -15,51 +15,48 @@
             <RowDefinition Height="35"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1" Grid.RowSpan="2" Background="{StaticResource SystemControlAcrylicWindowBrush}"/>
         <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="300"/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Grid Grid.Column="0">
-                <Grid>
-                    <StackPanel>
-                        <Grid Margin="10,15,0,15" Height="80">
-                            <TextBlock Margin="0,20,0,0" Style="{StaticResource SubTitle}" Text="備品"/>
-                            <AppBarButton HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource AppBarButtonRevealStyle}" Command="{Binding AddCommand}">
-                                <SymbolIcon Symbol="Add"></SymbolIcon>
-                            </AppBarButton>
-                        </Grid>
-                        <!--StackPanel Orientation="Horizontal">
+            <StackPanel>
+                <Grid Height="80">
+                    <TextBlock Margin="15,15,0,0" Style="{StaticResource SubTitle}" Text="備品"/>
+                    <AppBarButton HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource AppBarButtonRevealStyle}" Command="{Binding AddCommand}">
+                        <SymbolIcon Symbol="Add"></SymbolIcon>
+                    </AppBarButton>
+                </Grid>
+                <!--StackPanel Orientation="Horizontal">
                         <Button Content="削除" Command="{Binding DeleteCommand}" VerticalAlignment="Top" HorizontalAlignment="Right" Height="40" FontSize="20"/>
                         <Button Content="追加" Command="{Binding AddCommand}" VerticalAlignment="Top" HorizontalAlignment="Right" Height="40" FontSize="20"/>
                     </StackPanel-->
-                        <ListView ScrollViewer.VerticalScrollMode="Auto"
+                <ListView ScrollViewer.VerticalScrollMode="Auto"
                               ScrollViewer.HorizontalScrollBarVisibility="Auto"
                               Name="EquipmentList"
                               MaxHeight="800"
                               ItemsSource="{Binding ItemSources, Mode=TwoWay}"
                               SelectedIndex="{Binding SelectedIndexes, Mode=TwoWay}">
-                            <ListView.ItemTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding EquipmentName, Mode=TwoWay}" TextWrapping="NoWrap"/>
-                                </DataTemplate>
-                            </ListView.ItemTemplate>
-                        </ListView>
-                    </StackPanel>
-                </Grid>
-            </Grid>
-            <Grid Grid.Column="1">
-
-                <Frame  Visibility="{Binding ListVisibility}">
-                    <viewcontrols:EquipDetailControl/>
-                </Frame>
-                <Frame Visibility="{Binding UpdateVisibility}">
-                    <ScrollViewer>
-                        <views:UpdateFormPage/>
-                    </ScrollViewer>
-                </Frame>
-            </Grid>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding EquipmentName, Mode=TwoWay}" TextWrapping="NoWrap"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
         </Grid>
+        <Grid Grid.Column="1" Grid.Row="1">
+            <Frame  Visibility="{Binding ListVisibility}">
+                <viewcontrols:EquipDetailControl/>
+            </Frame>
+            <Frame Visibility="{Binding UpdateVisibility}">
+                <ScrollViewer>
+                    <views:UpdateFormPage/>
+                </ScrollViewer>
+            </Frame>
+        </Grid>
+
         <!--The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
                 Place your content here.-->
     </Grid>

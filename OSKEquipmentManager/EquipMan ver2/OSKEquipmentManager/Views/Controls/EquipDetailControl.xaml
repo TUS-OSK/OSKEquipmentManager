@@ -11,7 +11,7 @@
     d:DesignHeight="1160"
     d:DesignWidth="1120">
 
-    <Grid Background="{StaticResource SystemControlAcrylicWindowBrush}">
+    <Grid>
             <StackPanel>
 
                 <TextBlock Text="備品名:" Style="{ThemeResource BodyTextBlockStyle}" FontSize="36"/>
