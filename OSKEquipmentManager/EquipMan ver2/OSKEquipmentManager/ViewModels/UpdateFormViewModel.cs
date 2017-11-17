@@ -227,12 +227,39 @@ namespace OSKEquipmentManager.ViewModels
                     using (var db = new EquipmentInformationContext())
                     {
                         if (SelectedIndexes == -1)
+                        {
+                            BorrowButtonVisibility = Visibility.Visible;
+                            ReturnButtonVisibility = Visibility.Collapsed;
+                            RaisePropertyChanged(nameof(BorrowButtonVisibility));
+                            RaisePropertyChanged(nameof(ReturnButtonVisibility));
                             return EquipmentStatus.利用可能;
+                        }
                         var detail = ItemSources[SelectedIndexes];
+                        if(detail.Status== EquipmentStatus.利用可能)
+                        {
+                            BorrowButtonVisibility = Visibility.Visible;
+                            ReturnButtonVisibility = Visibility.Collapsed;
+                            RaisePropertyChanged(nameof(BorrowButtonVisibility));
+                            RaisePropertyChanged(nameof(ReturnButtonVisibility));
+                        }
+                        else
+                        {
+                            BorrowButtonVisibility = Visibility.Collapsed;
+                            ReturnButtonVisibility = Visibility.Visible;
+                            RaisePropertyChanged(nameof(BorrowButtonVisibility));
+                            RaisePropertyChanged(nameof(ReturnButtonVisibility));
+                        }
                         return detail.Status;
                     }
                 }
-                else { return EquipmentStatus.利用可能; }
+                else
+                {
+                    BorrowButtonVisibility = Visibility.Visible;
+                    ReturnButtonVisibility = Visibility.Collapsed;
+                    RaisePropertyChanged(nameof(BorrowButtonVisibility));
+                    RaisePropertyChanged(nameof(ReturnButtonVisibility));
+                    return EquipmentStatus.利用可能;
+                }
             }
         }
 
