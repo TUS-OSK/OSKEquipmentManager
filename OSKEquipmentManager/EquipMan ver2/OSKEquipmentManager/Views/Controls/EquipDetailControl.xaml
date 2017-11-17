@@ -13,51 +13,53 @@
 
     <Grid>
         <StackPanel Margin="25,10,25,0">
-
-            <TextBlock x:Name="EquipmentNameText" Style="{StaticResource Title}" Text="{Binding DetailEqNameText}"/>
-            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
-                <AppBarButton Style="{StaticResource AppBarButtonRevealStyle}" Command="{Binding BorrowCommand}">
-                    借りる
-                </AppBarButton>
-                <AppBarButton Style="{StaticResource AppBarButtonRevealStyle}" Command="{Binding DeleteCommand}">
+            <Grid>
+                <TextBlock x:Name="EquipmentNameText" Style="{StaticResource Title}" Text="{Binding DetailEqNameText}"/>
+                <AppBarButton Style="{StaticResource AppBarButtonRevealStyle}" Command="{Binding DeleteCommand}" HorizontalAlignment="Right">
                     <SymbolIcon Symbol="Delete"/>
                 </AppBarButton>
+            </Grid>
+
+            <StackPanel Orientation="Horizontal" Margin="0,50,0,5">
+                <TextBlock Text="{Binding DetailEqStatusText,Mode=TwoWay}" Style="{StaticResource SubTitle}" />
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="貸出状況" Style="{StaticResource SubTitle}" Margin="0,0,100,0"/>
-                <TextBlock x:Name="StatusText" Text="{Binding DetailEqStatusText,Mode=TwoWay}" Style="{StaticResource SubTitle}"/>
-            </StackPanel>
+              <AppBarButton Style="{StaticResource AppBarButtonRevealStyle}" Command="{Binding BorrowCommand}" Visibility="{Binding BorrowButtonVisibility}">
+                    借りる
+                </AppBarButton>
+                <AppBarButton Style="{StaticResource AppBarButtonRevealStyle}" Command="{Binding ReturnCommand}" Visibility="{Binding ReturnButtonVisibility}">
+                    返却
+                </AppBarButton>
 
-            <Grid Height="180" Margin="0,15,0,0">
+            <Grid Height="180" Margin="0,15,0,0" Visibility="{Binding ReturnButtonVisibility}">
                 <Rectangle Fill="{ThemeResource TextControlBackground}" RadiusX="5" RadiusY="5"></Rectangle>
-                <Grid>
-                    <Grid Margin="15,15,15,0">
-                        <Grid.RowDefinitions>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="180"></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Text="借用人" Style="{StaticResource SubTitle}"/>
-                        <TextBlock Grid.Column="1" x:Name="BrrorwingMemberText" Text="{Binding DetailEqBorrowMem}" Style="{StaticResource NormalText}"/>
+                <Grid Margin="15,15,15,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="180"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="借用人" Style="{StaticResource SubTitle}"/>
+                    <TextBlock Grid.Column="1" x:Name="BrrorwingMemberText" Text="{Binding DetailEqBorrowMem}" Style="{StaticResource NormalText}"/>
 
-                        <TextBlock Grid.Row="1" Text="貸出日時" Style="{StaticResource SubTitle}"/>
-                        <TextBlock Grid.Row="1" Grid.Column="1" x:Name="LoanDateText" Text="{Binding DetailEqLoanDate,Mode=TwoWay}"  Style="{StaticResource NormalText}"/>
+                    <TextBlock Grid.Row="1" Text="貸出日時" Style="{StaticResource SubTitle}"/>
+                    <TextBlock Grid.Row="1" Grid.Column="1" x:Name="LoanDateText" Text="{Binding DetailEqLoanDate,Mode=TwoWay}"  Style="{StaticResource NormalText}"/>
 
-                        <TextBlock Grid.Row="2" Text="返却予定" Style="{StaticResource SubTitle}"/>
-                        <TextBlock Grid.Row="2" Grid.Column="1" x:Name="ReturnDateText" Text="{Binding ReturnDate,Mode=TwoWay}"  Style="{StaticResource NormalText}"/>
-                    </Grid>
+                    <TextBlock Grid.Row="2" Text="返却予定" Style="{StaticResource SubTitle}"/>
+                    <TextBlock Grid.Row="2" Grid.Column="1" x:Name="ReturnDateText" Text="{Binding ReturnDate,Mode=TwoWay}"  Style="{StaticResource NormalText}"/>
                 </Grid>
             </Grid>
 
-            <TextBlock Text="備考" Style="{StaticResource SubTitle}" Margin="0,15,0,0"/>
+            <TextBlock Text="備考" Style="{StaticResource SubTitle}" Margin="0,15,0,15"/>
             <Grid Height="180" Margin="0,15,0,0">
                 <Rectangle Fill="{ThemeResource TextControlBackground}"  RadiusX="5" RadiusY="5"></Rectangle>
-                <TextBlock x:Name="RemarksText" Text="{Binding DetailEqRemarks}" Style="{StaticResource NormalText}"/>
+                <Grid Margin="15,15,15,0">
+                    <TextBlock x:Name="RemarksText" Text="{Binding DetailEqRemarks}" Style="{StaticResource NormalText}"/>
+                </Grid>
             </Grid>
         </StackPanel>
     </Grid>

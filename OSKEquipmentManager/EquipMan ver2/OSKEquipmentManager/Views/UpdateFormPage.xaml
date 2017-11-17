@@ -32,8 +32,8 @@
             <TextBlock Style="{StaticResource SubTitle}" Text="備考" HorizontalAlignment="Left" Margin="25,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
             <TextBox BorderThickness="0" Text="{Binding RemarkText,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="25,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="600" FontSize="24" Height="250"/>
             <StackPanel Orientation="Horizontal" Margin="450,20,0,0">
-                <AppBarButton Style="{StaticResource AppBarButtonRevealStyle}" Content="Cancel" Command="{Binding CancelCommand}" CommandParameter="0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <AppBarButton Style="{StaticResource AppBarButtonRevealStyle}" Content="UpDate" Command="{Binding UpdateCommand}" CommandParameter="1" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top"/>
+                <AppBarButton Style="{StaticResource AppBarButtonRevealStyle}" Content="キャンセル" Command="{Binding CancelCommand}" CommandParameter="0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <AppBarButton Style="{StaticResource AppBarButtonRevealStyle}" Content="追加" Command="{Binding UpdateCommand}" CommandParameter="1" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top"/>
             </StackPanel>
             <!--The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
                 Place your content here.-->
