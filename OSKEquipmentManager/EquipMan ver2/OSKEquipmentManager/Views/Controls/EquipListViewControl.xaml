@@ -8,12 +8,12 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     DataContext="{Binding UpdateFormViewModel, Source={StaticResource Locator}}"
-    d:DesignHeight="320"
-    d:DesignWidth="400">
+    d:DesignHeight="1120"
+    d:DesignWidth="1600">
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="60"/>
+            <RowDefinition Height="70"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 

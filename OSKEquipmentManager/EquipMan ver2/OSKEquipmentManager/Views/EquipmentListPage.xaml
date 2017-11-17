@@ -26,7 +26,7 @@
                       SelectionChanged="EquipmentList_SelectionChanged">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text="{Binding EquipmentName, Mode=TwoWay}"/>
+                    <TextBlock Text="{Binding EquipmentName, Mode=TwoWay}" FontSize="24"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

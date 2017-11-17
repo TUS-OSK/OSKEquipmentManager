@@ -8,24 +8,25 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    d:DesignHeight="375"
-    d:DesignWidth="400">
+    d:DesignHeight="1160"
+    d:DesignWidth="1120">
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
             <StackPanel>
-                <TextBlock Text="備品名:" Style="{ThemeResource BodyTextBlockStyle}"/>
-                <TextBlock x:Name="EquipmentNameText" Text="{Binding DetailEqNameText,Mode=TwoWay}" Style="{ThemeResource TitleTextBlockStyle}" Margin="10,0,10,15"/>
 
-                <TextBlock Text="貸出状態:" Style="{ThemeResource BodyTextBlockStyle}"/>
-                <TextBlock x:Name="StatusText" Text="{Binding DetailEqStatusText,Mode=TwoWay}" Style="{ThemeResource TitleTextBlockStyle}" Margin="10,0,10,15"/>
+                <TextBlock Text="備品名:" Style="{ThemeResource BodyTextBlockStyle}" FontSize="36"/>
+                <TextBlock x:Name="EquipmentNameText" Text="{Binding DetailEqNameText,Mode=TwoWay}" Style="{ThemeResource TitleTextBlockStyle}" Margin="10,15,10,25" FontSize="28"/>
 
-                <TextBlock Text="貸出日時:" Style="{ThemeResource BodyTextBlockStyle}"/>
-                <TextBlock x:Name="LoanDateText" Text="{Binding DetailEqLoanDate,Mode=TwoWay}" Style="{ThemeResource BodyTextBlockStyle}" Margin="10,0,10,15"/>
+                <TextBlock Text="貸出状況:" Style="{ThemeResource BodyTextBlockStyle}" FontSize="36"/>
+                <TextBlock x:Name="StatusText" Text="{Binding DetailEqStatusText,Mode=TwoWay}" Style="{ThemeResource TitleTextBlockStyle}" Margin="10,15,10,25" FontSize="24"/>
 
-                <TextBlock Text="" Style="{ThemeResource BodyTextBlockStyle}"/>
-                <TextBlock x:Name="BrrorwingMemberText" Text="{Binding DetailEqBorrowMem}" Style="{ThemeResource BodyTextBlockStyle}" Margin="10,0,10,15"/>
+                <TextBlock Text="貸出日:" Style="{ThemeResource BodyTextBlockStyle}" FontSize="36"/>
+                <TextBlock x:Name="LoanDateText" Text="{Binding DetailEqLoanDate,Mode=TwoWay}" Style="{ThemeResource BodyTextBlockStyle}" Margin="10,15,10,25" FontSize="24"/>
 
-                <TextBlock Text="Remarks" Style="{ThemeResource BodyTextBlockStyle}"/>
-                <TextBlock x:Name="RemarksText" Text="{Binding DetailEqRemarks}" Style="{ThemeResource BodyTextBlockStyle}" Margin="10,0,10,15"/>
+                <TextBlock Text="借りた人:" Style="{ThemeResource BodyTextBlockStyle}" FontSize="36"/>
+                <TextBlock x:Name="BrrorwingMemberText" Text="{Binding DetailEqBorrowMem}" Style="{ThemeResource BodyTextBlockStyle}" Margin="10,15,10,25" FontSize="24"/>
+
+                <TextBlock Text="備考:" Style="{ThemeResource BodyTextBlockStyle}" FontSize="36"/>
+                <TextBlock x:Name="RemarksText" Text="{Binding DetailEqRemarks}" Style="{ThemeResource BodyTextBlockStyle}" Margin="10,15,10,25" FontSize="24"/>
             </StackPanel>
         </Grid>
 </UserControl>
