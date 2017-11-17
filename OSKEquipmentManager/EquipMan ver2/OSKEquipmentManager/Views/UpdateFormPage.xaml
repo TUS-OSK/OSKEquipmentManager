@@ -11,7 +11,7 @@
     Loaded="Page_Loaded">
     <Grid
         x:Name="ContentArea"
-        Margin="{StaticResource MediumLeftRightMargin}"
+        Background="{StaticResource SystemControlAcrylicWindowBrush}"
         >
         <StackPanel>
             <TextBlock Style="{StaticResource Title}" Text="備品登録" HorizontalAlignment="Left" Margin="25,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
@@ -33,8 +33,8 @@
             <TextBlock Style="{StaticResource SubTitle}" Text="備考" HorizontalAlignment="Left" Margin="25,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
             <TextBox BorderThickness="0" Text="{Binding RemarkText,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="25,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="600" FontSize="24" Height="250"/>
             <StackPanel Orientation="Horizontal" Margin="450,20,0,0">
-                <Button Style="{StaticResource NormalButton}" Content="Cancel" Command="{Binding CancelCommand}" CommandParameter="0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <Button Style="{StaticResource NormalButton}" Content="UpDate" Command="{Binding UpdateCommand}" CommandParameter="1" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top"/>
+                <AppBarButton Style="{StaticResource AppBarButtonRevealStyle}" Content="Cancel" Command="{Binding CancelCommand}" CommandParameter="0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <AppBarButton Style="{StaticResource AppBarButtonRevealStyle}" Content="UpDate" Command="{Binding UpdateCommand}" CommandParameter="1" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top"/>
             </StackPanel>
             <!--The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
                 Place your content here.-->

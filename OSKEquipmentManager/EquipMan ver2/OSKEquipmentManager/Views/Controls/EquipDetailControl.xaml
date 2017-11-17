@@ -10,8 +10,8 @@
     mc:Ignorable="d"
     d:DesignHeight="1160"
     d:DesignWidth="1120">
-   
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Background="{StaticResource SystemControlAcrylicWindowBrush}">
             <StackPanel>
 
                 <TextBlock Text="備品名:" Style="{ThemeResource BodyTextBlockStyle}" FontSize="36"/>
