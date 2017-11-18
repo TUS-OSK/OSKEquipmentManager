@@ -48,7 +48,7 @@
                     <TextBlock Grid.Row="1" Grid.Column="1" x:Name="LoanDateText" Text="{Binding DetailEqLoanDate,Mode=TwoWay}"  Style="{StaticResource NormalText}"/>
 
                     <TextBlock Grid.Row="2" Text="返却予定" Style="{StaticResource SubTitle}"/>
-                    <TextBlock Grid.Row="2" Grid.Column="1" x:Name="ReturnDateText" Text="{Binding ReturnDate,Mode=TwoWay}"  Style="{StaticResource NormalText}"/>
+                    <TextBlock Grid.Row="2" Grid.Column="1" x:Name="ReturnDateText" Text="{Binding ReturnDateText,Mode=TwoWay}"  Style="{StaticResource NormalText}"/>
                 </Grid>
             </Grid>
 

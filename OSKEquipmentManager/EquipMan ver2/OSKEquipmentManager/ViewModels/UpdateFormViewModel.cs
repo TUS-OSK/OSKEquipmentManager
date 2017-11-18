@@ -268,7 +268,7 @@ namespace OSKEquipmentManager.ViewModels
         /// <summary>
         /// 一応取得しておく「備品を借りた日」
         /// </summary>
-        public DateTime DetailEqLoanDate
+        public string DetailEqLoanDate
         {
             get
             {
@@ -277,12 +277,12 @@ namespace OSKEquipmentManager.ViewModels
                     using (var db = new EquipmentInformationContext())
                     {
                         if (SelectedIndexes == -1)
-                            return new DateTime { };
+                            return new DateTime { }.ToString("yyyy/M/d");
                         var detail = ItemSources[SelectedIndexes];
-                        return detail.LoanDate;
+                        return detail.LoanDate.ToString("yyyy/M/d");
                     }
                 }
-                else { return DateTime.Today; }
+                else { return DateTime.Today.ToString("yyyy/M/d"); }
             }
         }
 
@@ -383,6 +383,25 @@ namespace OSKEquipmentManager.ViewModels
                 else { return new DateTime(); }
             }
         }
+
+        public string ReturnDateText
+        {
+            get
+            {
+                if (ItemSources.Count >= 1)
+                {
+                    using (var db = new EquipmentInformationContext())
+                    {
+                        if (SelectedIndexes == -1)
+                            return new DateTime { }.ToString("yyyy/M/d");
+                        var detail = ItemSources[SelectedIndexes];
+                        return detail.ReturnPlanDate.ToString("yyyy/M/d");
+                    }
+                }
+                else { return DateTime.Today.ToString("yyyy/M/d"); }
+            }
+        }
+
 
         /// <summary>
         /// ListView, 詳細ページで表示するための
@@ -521,6 +540,7 @@ namespace OSKEquipmentManager.ViewModels
 
                         var equip = ItemSources[SelectedIndexes];
                         equip.BorrowingMember = this.PersonName;
+                        equip.LoanDate = DateTime.Today;
                         equip.ReturnPlanDate = calcReturnDate();
                         equip.Status = EquipmentStatus.貸出中;
                         equip.Remarks = this.RemarkText;
