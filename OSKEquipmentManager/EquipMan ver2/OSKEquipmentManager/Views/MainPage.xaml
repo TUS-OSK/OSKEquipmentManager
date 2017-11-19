@@ -21,17 +21,23 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" Grid.RowSpan="2" Background="{StaticResource SystemControlAcrylicWindowBrush}"/>
         <Grid Grid.Row="1">
-            <StackPanel>
-                <Grid Height="80">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid>
+                <StackPanel>
                     <TextBlock Margin="15,15,0,0" Style="{StaticResource SubTitle}" Text="備品"/>
                     <AppBarButton HorizontalAlignment="Right" VerticalAlignment="Bottom"  Style="{StaticResource AppBarButtonRevealStyle}" Command="{Binding AddCommand}">
                         <SymbolIcon Symbol="Add"></SymbolIcon>
                     </AppBarButton>
-                </Grid>
-                <!--StackPanel Orientation="Horizontal">
+                </StackPanel>
+            </Grid>
+            <!--StackPanel Orientation="Horizontal">
                         <Button Content="削除" Command="{Binding DeleteCommand}" VerticalAlignment="Top" HorizontalAlignment="Right" Height="40" FontSize="20"/>
                         <Button Content="追加" Command="{Binding AddCommand}" VerticalAlignment="Top" HorizontalAlignment="Right" Height="40" FontSize="20"/>
                     </StackPanel-->
+            <Grid Grid.Row="1">
                 <ListView ScrollViewer.VerticalScrollMode="Auto"
                               ScrollViewer.HorizontalScrollBarVisibility="Auto"
                               Name="EquipmentList"
@@ -44,7 +50,7 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-            </StackPanel>
+            </Grid>
         </Grid>
         <Grid Grid.Column="1" Grid.Row="1">
             <Frame  Visibility="{Binding ListVisibility}">
