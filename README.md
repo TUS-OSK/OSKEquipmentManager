@@ -1,5 +1,5 @@
 # OSKEquipmentManager
-備品を管理するアプリ
+備品を管理するアプリ  (OSKEquipmentManager/OSKEquipmentManager/EquipMan ver2/OSKEquipmentManager/ にソースファイルがある)
 
 2017年秋に Microsoft からリリースされた FluentDesign の機能を実装。
 
